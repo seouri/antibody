@@ -1,4 +1,4 @@
-Antibody::Application.routes.draw do
+Antibodyapp::Application.routes.draw do
   devise_for :users
   resources :users
   resources :antibodies
