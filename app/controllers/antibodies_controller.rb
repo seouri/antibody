@@ -2,7 +2,7 @@ class AntibodiesController < ApplicationController
   # GET /antibodies
   # GET /antibodies.xml
   def index
-    @antibodies = Antibody.all
+    @antibodies = Antibody.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

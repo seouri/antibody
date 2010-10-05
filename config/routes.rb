@@ -2,7 +2,7 @@ Antibodyapp::Application.routes.draw do
   devise_for :users
   resources :users
   resources :antibodies
-  root :to => "users#index"
+  root :to => "antibodies#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
