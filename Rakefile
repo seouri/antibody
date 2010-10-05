@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Modantibody::Application.load_tasks
+Antibody::Application.load_tasks

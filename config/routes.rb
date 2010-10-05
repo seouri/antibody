@@ -1,6 +1,7 @@
-Modantibody::Application.routes.draw do
+Antibody::Application.routes.draw do
   devise_for :users
   resources :users
+  resources :antibodies
   root :to => "users#index"
 
   # The priority is based upon order of creation:

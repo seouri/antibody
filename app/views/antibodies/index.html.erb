@@ -1,0 +1,49 @@
+<h1>Listing antibodies</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Target species</th>
+    <th>Target name</th>
+    <th>Target gene product</th>
+    <th>Host species</th>
+    <th>Antigen</th>
+    <th>Clonality</th>
+    <th>Purification</th>
+    <th>Vendor</th>
+    <th>Catalogue number</th>
+    <th>Lot number</th>
+    <th>Url</th>
+    <th>Created by</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @antibodies.each do |antibody| %>
+  <tr>
+    <td><%= antibody.name %></td>
+    <td><%= antibody.description %></td>
+    <td><%= antibody.target_species %></td>
+    <td><%= antibody.target_name %></td>
+    <td><%= antibody.target_gene_product %></td>
+    <td><%= antibody.host_species %></td>
+    <td><%= antibody.antigen %></td>
+    <td><%= antibody.clonality %></td>
+    <td><%= antibody.purification %></td>
+    <td><%= antibody.vendor %></td>
+    <td><%= antibody.catalogue_number %></td>
+    <td><%= antibody.lot_number %></td>
+    <td><%= antibody.url %></td>
+    <td><%= antibody.created_by %></td>
+    <td><%= link_to 'Show', antibody %></td>
+    <td><%= link_to 'Edit', edit_antibody_path(antibody) %></td>
+    <td><%= link_to 'Destroy', antibody, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Antibody', new_antibody_path %>

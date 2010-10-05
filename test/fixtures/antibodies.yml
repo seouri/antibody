@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  target_species: MyString
+  target_name: MyString
+  target_gene_product: MyString
+  host_species: MyString
+  antigen: MyText
+  clonality: MyString
+  purification: MyString
+  vendor: MyString
+  catalogue_number: MyString
+  lot_number: MyString
+  url: MyString
+  created_by: MyString
+
+two:
+  name: MyString
+  description: MyText
+  target_species: MyString
+  target_name: MyString
+  target_gene_product: MyString
+  host_species: MyString
+  antigen: MyText
+  clonality: MyString
+  purification: MyString
+  vendor: MyString
+  catalogue_number: MyString
+  lot_number: MyString
+  url: MyString
+  created_by: MyString

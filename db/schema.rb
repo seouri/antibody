@@ -10,7 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100929161208) do
+ActiveRecord::Schema.define(:version => 20101005205504) do
+
+  create_table "antibodies", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "target_species"
+    t.string   "target_name"
+    t.string   "target_gene_product"
+    t.string   "host_species"
+    t.text     "antigen"
+    t.string   "clonality"
+    t.string   "purification"
+    t.string   "vendor"
+    t.string   "catalogue_number"
+    t.string   "lot_number"
+    t.string   "url"
+    t.string   "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

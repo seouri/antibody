@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @antibody.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @antibody.description %>
+</p>
+
+<p>
+  <b>Target species:</b>
+  <%= @antibody.target_species %>
+</p>
+
+<p>
+  <b>Target name:</b>
+  <%= @antibody.target_name %>
+</p>
+
+<p>
+  <b>Target gene product:</b>
+  <%= @antibody.target_gene_product %>
+</p>
+
+<p>
+  <b>Host species:</b>
+  <%= @antibody.host_species %>
+</p>
+
+<p>
+  <b>Antigen:</b>
+  <%= @antibody.antigen %>
+</p>
+
+<p>
+  <b>Clonality:</b>
+  <%= @antibody.clonality %>
+</p>
+
+<p>
+  <b>Purification:</b>
+  <%= @antibody.purification %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @antibody.vendor %>
+</p>
+
+<p>
+  <b>Catalogue number:</b>
+  <%= @antibody.catalogue_number %>
+</p>
+
+<p>
+  <b>Lot number:</b>
+  <%= @antibody.lot_number %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @antibody.url %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%= @antibody.created_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_antibody_path(@antibody) %> |
+<%= link_to 'Back', antibodies_path %>
