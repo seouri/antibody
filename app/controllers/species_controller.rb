@@ -2,7 +2,7 @@ class SpeciesController < ApplicationController
   # GET /species
   # GET /species.xml
   def index
-    @species = Species.all
+    @species = Species.order("targets_count desc, antibodies_count desc, name").where("targets_count > 0")
 
     respond_to do |format|
       format.html # index.html.erb

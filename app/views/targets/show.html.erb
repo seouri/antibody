@@ -1,13 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @target.name %>
-</p>
+<h1><%= @target.name %></h1>
 
 <p>
   <b>Species:</b>
-  <%= @target.species_id %>
+  <%= @target.species.try(:name) %>
 </p>
 
 <p>
@@ -15,11 +10,19 @@
   <%= @target.gene_id %>
 </p>
 
-<p>
-  <b>Antibodies count:</b>
-  <%= @target.antibodies_count %>
-</p>
-
+<h2>Antibodies (<%= @target.antibodies_count %>)</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Validations</th>
+  </tr>
+<% @target.antibodies.each do |antibody| %>
+  <tr>
+    <td><%= link_to antibody.name, antibody %></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>
 
 <%= link_to 'Edit', edit_target_path(@target) %> |
 <%= link_to 'Back', targets_path %>

@@ -8,22 +8,22 @@
 
 <p>
   <b>Target species:</b>
-  <%= @antibody.target_species %>
+  <%= @antibody.target.species.try(:name) %>
 </p>
 
 <p>
   <b>Target name:</b>
-  <%= @antibody.target_name %>
+  <%= link_to @antibody.target.name, @antibody.target %>
 </p>
 
 <p>
   <b>Target gene product:</b>
-  <%= @antibody.target_gene_product %>
+  <%= @antibody.target.gene_id %>
 </p>
 
 <p>
   <b>Host species:</b>
-  <%= @antibody.host_species %>
+  <%= @antibody.host_species.name %>
 </p>
 
 <p>
@@ -43,7 +43,7 @@
 
 <p>
   <b>Vendor:</b>
-  <%= @antibody.vendor %>
+  <%= link_to @antibody.vendor.name, @antibody.vendor %>
 </p>
 
 <p>

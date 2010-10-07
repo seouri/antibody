@@ -1,25 +1,19 @@
-<h1>Listing targets</h1>
+<h1>Targets</h1>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Species</th>
     <th>Gene</th>
-    <th>Antibodies count</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Antibodies</th>
   </tr>
 
 <% @targets.each do |target| %>
   <tr>
-    <td><%= target.name %></td>
-    <td><%= target.species_id %></td>
+    <td><%= link_to target.name, target %></td>
+    <td><%= target.species.try(:name) %></td>
     <td><%= target.gene_id %></td>
-    <td><%= target.antibodies_count %></td>
-    <td><%= link_to 'Show', target %></td>
-    <td><%= link_to 'Edit', edit_target_path(target) %></td>
-    <td><%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="number"><%= target.antibodies_count %></td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,4 @@
-<h1>Listing vendors</h1>
+<h1>Vendors</h1>
 
 <table>
   <tr>
@@ -7,21 +7,17 @@
     <th>Contact person</th>
     <th>Contact email</th>
     <th>Contact phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Antibodies</th>
   </tr>
 
 <% @vendors.each do |vendor| %>
   <tr>
-    <td><%= vendor.name %></td>
+    <td><%= link_to vendor.name, vendor %></td>
     <td><%= vendor.website %></td>
     <td><%= vendor.contact_person %></td>
     <td><%= vendor.contact_email %></td>
     <td><%= vendor.contact_phone %></td>
-    <td><%= link_to 'Show', vendor %></td>
-    <td><%= link_to 'Edit', edit_vendor_path(vendor) %></td>
-    <td><%= link_to 'Destroy', vendor, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td class="number"><%= vendor.antibodies_count %></td>
   </tr>
 <% end %>
 </table>

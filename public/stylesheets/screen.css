@@ -4,18 +4,45 @@ body {
 }
 h1 {
   font-size: 300%;
+  margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
-#usermenu {
+h2 {
+  font-size: 197%;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+ul.horizontal_menu {
+  display: inline;
   list-style: none;	
   margin: 0;
   padding: 0;
+  font-size: 123.1%;
 }
 
-#usermenu li {
-  display: inline;  
+.horizontal_menu li {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background-color: #222;
+  color: #fff;
+  width: 6em;
+  height: 1.75em;
+  text-align: center;
+  line-height: 1.75em
 }
-
+.horizontal_menu a, .horizontal_menu a:visited {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  background-color: #888;
+}
+.horizontal_menu a:hover {
+  background-color: #555;
+}
+#usermenu {
+  float: right;
+}
 .dashboard {
   display: inline-block;
   margin: 0;
@@ -52,7 +79,9 @@ h1 {
 .dashboard .item {
   color: #666;
 }
-
+.number {
+  text-align: right;
+}
 /* pagination start */
 .pagination {
   margin: 1em 0;

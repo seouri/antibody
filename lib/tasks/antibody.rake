@@ -13,8 +13,9 @@ namespace :antibody do
   end
 
   desc "load Antibody data"
-  task :load, :file, :needs => :environment do |task, args|
+  task :load, :file, :model, :needs => :environment do |task, args|
     file = args[:file]
+    model = Object.const_get(args[:model])
     File.open(file, "r") do |f|
       records = []
       columns = []
@@ -28,10 +29,13 @@ namespace :antibody do
             key = columns[i]
             params[key] = values[i]
           end
-          records << Antibody.new(params)
+          m = model.new(params)
+          m.id = values[0]
+          m.save!
+          #records << model.new(params)
         end
       end
-      Antibody.import records
+      #model.import records
     end
   end
 

@@ -6,11 +6,11 @@
       <span class="item">antibodies</span>
     </li>
     <li>
-      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT target_name")) %></span>
+      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT target_id")) %></span>
       <span class="item">targets</span>
     </li>
     <li>
-      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT vendor")) %></span>
+      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT vendor_id")) %></span>
       <span class="item">vendors</span>
     </li>
     <li>
@@ -33,8 +33,8 @@
 
 <% @antibodies.each do |antibody| %>
   <tr>
-    <td><%= link_to antibody.target_name, antibody %></td>
-    <td><%= antibody.target_species %></td>
+    <td><%= link_to antibody.target.name, antibody %></td>
+    <td><%= antibody.target.species.try(:name) %></td>
     <td><%= link_to antibody.name, antibody %></td>
     <td></td>
   </tr>

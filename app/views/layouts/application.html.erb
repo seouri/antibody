@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>modENCODE Antibodies</title>
+  <title>Antibodies</title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.2.0/build/cssreset/reset-min.css&3.2.0/build/cssfonts/fonts-min.css&3.2.0/build/cssgrids/grids-min.css&3.2.0/build/cssbase/base-min.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <%= stylesheet_link_tag :all %>
@@ -9,19 +9,25 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<%= link_to_unless_current(image_tag("logo-312x65.png"), root_path)%>
+<ul id="mainmenu" class="horizontal_menu">
+  <li><%= link_to_unless_current("Home", root_path) %></li>
+  <li><%= link_to_unless_current("Antibodies", antibodies_path) %></li>
+  <li><%= link_to_unless_current("Targets", targets_path) %></li>
+  <li><%= link_to_unless_current("Species", species_index_path) %></li>
+  <li><%= link_to_unless_current("Vendors", vendors_path) %></li>
+</ul>
+<ul id="usermenu" class="horizontal_menu">
+<% if user_signed_in? %>
+  <li><%= link_to_unless_current("Welcome #{current_user.email}", current_user) %></li>
+  <li><%= link_to_unless_current("Sign out", destroy_user_session_path) %></li>
+<% else %>
+  <li><%= link_to_unless_current('Sign in', new_user_session_path)  %></li>
+  <li><%= link_to_unless_current('Sign up', new_user_registration_path) %></li>
+<% end %>
+</ul>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<ul id="usermenu">
-<% if user_signed_in? %>
-  <li><%= link_to("Welcome #{current_user.email}", current_user) %></li>
-  <li><%= link_to("Sign out", destroy_user_session_path) %></li>
-<% else %>
-  <li><%= link_to('Sign in', new_user_session_path)  %></li>
-  <li><%= link_to('Sign up', new_user_registration_path) %></li>
-<% end %>
-</ul>
 
 <%= yield %>
 

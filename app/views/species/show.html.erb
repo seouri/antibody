@@ -1,25 +1,18 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @species.name.titleize %> (<%= @species.scientific_name %>)</h1>
 
-<p>
-  <b>Name:</b>
-  <%= @species.name %>
-</p>
+<h2>Targets (<%= @species.targets_count %>)</h2>
 
-<p>
-  <b>Scientific name:</b>
-  <%= @species.scientific_name %>
-</p>
-
-<p>
-  <b>Targets count:</b>
-  <%= @species.targets_count %>
-</p>
-
-<p>
-  <b>Antibodies count:</b>
-  <%= @species.antibodies_count %>
-</p>
-
-
-<%= link_to 'Edit', edit_species_path(@species) %> |
-<%= link_to 'Back', species_index_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Gene</th>
+    <th>Antibodies</th>
+  </tr>
+<% @species.targets.each do |target| %>
+  <tr>
+    <td><%= link_to target.name, target %></td>
+    <td><%= target.gene_id %></td>
+    <td class="number"><%= target.antibodies_count %></td>
+  </tr>
+<% end %>
+</table>

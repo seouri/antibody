@@ -1,25 +1,17 @@
-<h1>Listing species</h1>
+<h1>Species</h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th>Scientific name</th>
-    <th>Targets count</th>
-    <th>Antibodies count</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Targets</th>
+    <th>Antibodies</th>
   </tr>
 
 <% @species.each do |species| %>
   <tr>
-    <td><%= species.name %></td>
-    <td><%= species.scientific_name %></td>
-    <td><%= species.targets_count %></td>
-    <td><%= species.antibodies_count %></td>
-    <td><%= link_to 'Show', species %></td>
-    <td><%= link_to 'Edit', edit_species_path(species) %></td>
-    <td><%= link_to 'Destroy', species, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to species.long_name, species %></td>
+    <td class="number"><%= species.targets_count %></td>
+    <td class="number"><%= species.antibodies_count %></td>
   </tr>
 <% end %>
 </table>
