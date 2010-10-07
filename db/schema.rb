@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101005205504) do
+ActiveRecord::Schema.define(:version => 20101007013235) do
 
   create_table "antibodies", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(:version => 20101005205504) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "species", :force => true do |t|
+    t.string   "name"
+    t.string   "scientific_name"
+    t.integer  "targets_count",    :default => 0
+    t.integer  "antibodies_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "species", ["name"], :name => "index_species_on_name"
+  add_index "species", ["scientific_name"], :name => "index_species_on_scientific_name"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

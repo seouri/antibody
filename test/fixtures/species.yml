@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  scientific_name: MyString
+  targets_count: 1
+  antibodies_count: 1
+
+two:
+  name: MyString
+  scientific_name: MyString
+  targets_count: 1
+  antibodies_count: 1

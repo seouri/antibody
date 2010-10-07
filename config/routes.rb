@@ -1,6 +1,7 @@
 Antibodyapp::Application.routes.draw do
   devise_for :users
   resources :users
+  resources :species
   resources :antibodies
   root :to => "antibodies#index"
 

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @species.name %>
+</p>
+
+<p>
+  <b>Scientific name:</b>
+  <%= @species.scientific_name %>
+</p>
+
+<p>
+  <b>Targets count:</b>
+  <%= @species.targets_count %>
+</p>
+
+<p>
+  <b>Antibodies count:</b>
+  <%= @species.antibodies_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_species_path(@species) %> |
+<%= link_to 'Back', species_index_path %>
