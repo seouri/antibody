@@ -1,4 +1,6 @@
 Antibodyapp::Application.routes.draw do
+  resources :vendors
+
   devise_for :users
   resources :users
   resources :species
