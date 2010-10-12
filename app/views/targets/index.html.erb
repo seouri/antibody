@@ -1,11 +1,15 @@
 <h1>Targets</h1>
 
+<%= paginated_section(@targets) do %>
+
+<div class="pagination_info"><%= page_entries_info @targets %></div>
+
 <table>
   <tr>
-    <th>Name</th>
+    <th><%= sortable "name" %></th>
     <th>Species</th>
     <th>Gene</th>
-    <th>Antibodies</th>
+    <th><%= sortable "antibodies_count", "Antibodies" %></th>
   </tr>
 
 <% @targets.each do |target| %>
@@ -18,6 +22,6 @@
 <% end %>
 </table>
 
-<br />
+<% end %>
 
 <%= link_to 'New Target', new_target_path %>

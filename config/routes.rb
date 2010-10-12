@@ -1,13 +1,12 @@
 Antibodyapp::Application.routes.draw do
   resources :targets
-
   resources :vendors
-
   devise_for :users
   resources :users
   resources :species
   resources :antibodies
-  root :to => "antibodies#index"
+  root :to => "pages#home"
+  match 'about' => "pages#about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

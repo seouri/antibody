@@ -1,13 +1,16 @@
 <h1>Vendors</h1>
+<%= paginated_section(@vendors) do %>
+
+<div class="pagination_info"><%= page_entries_info @vendors %></div>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Website</th>
-    <th>Contact person</th>
-    <th>Contact email</th>
-    <th>Contact phone</th>
-    <th>Antibodies</th>
+    <th><%= sortable "name" %></th>
+    <th><%= sortable "website" %></th>
+    <th><%= sortable "contact_person" %></th>
+    <th><%= sortable "contact_email" %></th>
+    <th><%= sortable "contact_phone" %></th>
+    <th><%= sortable "antibodies_count", "Antibodies" %></th>
   </tr>
 
 <% @vendors.each do |vendor| %>
@@ -21,6 +24,7 @@
   </tr>
 <% end %>
 </table>
+<% end %>
 
 <br />
 

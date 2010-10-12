@@ -1,3 +1,5 @@
 class Vendor < ActiveRecord::Base
-  has_many :antibodies, :include => [:target => :species]
+  cattr_reader :per_page
+  @@per_page = 10
+  has_many :antibodies, :include => [:target => :species], :order => "name"
 end

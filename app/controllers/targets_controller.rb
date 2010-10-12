@@ -2,7 +2,7 @@ class TargetsController < ApplicationController
   # GET /targets
   # GET /targets.xml
   def index
-    @targets = Target.includes(:species)
+    @targets = Target.order(order_string).includes(:species).paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +79,11 @@ class TargetsController < ApplicationController
       format.html { redirect_to(targets_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def sort_column  
+    Target.column_names.include?(params[:sort]) ? params[:sort] : "name"  
   end
 end

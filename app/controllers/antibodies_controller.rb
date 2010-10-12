@@ -2,7 +2,7 @@ class AntibodiesController < ApplicationController
   # GET /antibodies
   # GET /antibodies.xml
   def index
-    @antibodies = Antibody.includes(:target => :species).paginate(:page => params[:page])
+    @antibodies = Antibody.includes(:target => :species).order(order_string).paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -79,5 +79,10 @@ class AntibodiesController < ApplicationController
       format.html { redirect_to(antibodies_url) }
       format.xml  { head :ok }
     end
+  end
+
+private
+  def sort_column  
+    Antibody.column_names.include?(params[:sort]) ? params[:sort] : "name"  
   end
 end

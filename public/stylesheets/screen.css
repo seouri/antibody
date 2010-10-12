@@ -1,6 +1,27 @@
 body {
   margin: 1em auto;
-  width: 960px;
+  width: 796px;
+}
+
+#main {
+  min-height: 30em;
+}
+#logo {
+}
+
+a, a:visited {
+  color: #b50;
+}
+
+a:hover {
+  color: #e82;
+}
+th {
+  color: #b50;
+  background-color: #ddd;
+}
+th a {
+  text-decoration: none;
 }
 h1 {
   font-size: 300%;
@@ -12,6 +33,11 @@ h2 {
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
+
+#navigation {
+  border-bottom: 4px solid #222;
+}
+
 ul.horizontal_menu {
   display: inline;
   list-style: none;	
@@ -36,6 +62,8 @@ ul.horizontal_menu {
   color: #fff;
   text-decoration: none;
   background-color: #888;
+  width: 6em;
+  height: 1.75em;
 }
 .horizontal_menu a:hover {
   background-color: #555;
@@ -43,9 +71,14 @@ ul.horizontal_menu {
 #usermenu {
   float: right;
 }
+#footer {
+  margin-top: 1em;
+  border-top: 4px solid #222;
+}
+
 .dashboard {
   display: inline-block;
-  margin: 0;
+  margin: 0 0 1em 0;
 }
 .dashboard ul {
   margin: 0;
@@ -133,3 +166,16 @@ ul.horizontal_menu {
   color: #777;
 }
 /* pagination end */
+
+th .current {  
+  padding-right: 12px;  
+  background-repeat: no-repeat;  
+  background-position: right center;  
+}  
+th .asc {   
+  background-image: url(/images/up_arrow.png);   
+}  
+  
+th .desc {   
+  background-image: url(/images/down_arrow.png);   
+}

@@ -9,12 +9,15 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<%= image_tag "logo-312x65.png", :id => "logo" %>
+<div id="navigation">
 <ul id="mainmenu" class="horizontal_menu">
   <li><%= link_to_unless_current("Home", root_path) %></li>
   <li><%= link_to_unless_current("Antibodies", antibodies_path) %></li>
   <li><%= link_to_unless_current("Targets", targets_path) %></li>
   <li><%= link_to_unless_current("Species", species_index_path) %></li>
   <li><%= link_to_unless_current("Vendors", vendors_path) %></li>
+  <li><%= link_to_unless_current("About", about_path) %></li>
 </ul>
 <ul id="usermenu" class="horizontal_menu">
 <% if user_signed_in? %>
@@ -25,11 +28,16 @@
   <li><%= link_to_unless_current('Sign up', new_user_registration_path) %></li>
 <% end %>
 </ul>
+</div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-
+<div id="main">
 <%= yield %>
+</div>
 
+
+<div id="footer">
+</div>
 </body>
 </html>

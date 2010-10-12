@@ -1,41 +1,22 @@
 <h1>Antibodies</h1>
-<div class="dashboard">
-  <ul>
-    <li>
-      <span class="value"><%= number_with_delimiter(Antibody.count) %></span>
-      <span class="item">antibodies</span>
-    </li>
-    <li>
-      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT target_id")) %></span>
-      <span class="item">targets</span>
-    </li>
-    <li>
-      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT vendor_id")) %></span>
-      <span class="item">vendors</span>
-    </li>
-    <li>
-      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT created_by")) %></span>
-      <span class="item">validators</span>
-    </li>
-  </ul>
-</div>
+
 <%= paginated_section(@antibodies) do %>
 
 <div class="pagination_info"><%= page_entries_info @antibodies %></div>
 
 <table>
   <tr>
-    <th>Target name</th>
-    <th>Target species</th>
-    <th>Antibody Name</th>
+    <th><%= sortable "name", "Antibody Name" %></th>
+    <th>Target Name</th>
+    <th>Target Species</th>
     <th>Validations</th>
   </tr>
 
 <% @antibodies.each do |antibody| %>
   <tr>
+    <td><%= link_to antibody.name, antibody %></td>
     <td><%= link_to antibody.target.name, antibody %></td>
     <td><%= antibody.target.species.try(:name) %></td>
-    <td><%= link_to antibody.name, antibody %></td>
     <td></td>
   </tr>
 <% end %>
