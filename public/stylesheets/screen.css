@@ -9,6 +9,10 @@ body {
 #logo {
 }
 
+p {
+  font-size: 123.1%;
+  line-height: 165%;
+}
 a, a:visited {
   color: #b50;
 }
@@ -108,7 +112,6 @@ ul.horizontal_menu {
   display: block;
 }
 .dashboard a:visited {
-  color: #000;
 }
 .dashboard .item {
   color: #666;
