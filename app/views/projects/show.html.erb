@@ -1,20 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @project.name %></h1>
 
+<h2>Description</h2>
 <p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
-
-<p>
-  <b>Description:</b>
   <%= @project.description %>
 </p>
 
-<p>
-  <b>Targets count:</b>
-  <%= @project.targets_count %>
-</p>
+<h2>Antibodies</h2>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Validations</th>
+  </tr>
+<% @project.antibodies.each do |antibody| %>
+  <tr>
+    <td><%= link_to antibody.name, antibody %></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
