@@ -26,8 +26,6 @@ a:hover {
   color: #e82;
 }
 .banner {
-  border: 1px solid #eee;
-  padding: 1em;
   background-color: #fec;
   -webkit-box-shadow: #333 2px 2px 4px ;
   -moz-box-shadow: #333 2px 2px 4px ;
@@ -35,6 +33,24 @@ a:hover {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  font-size: 123.1%;
+}
+.banner a {
+  padding: 1em;
+  display: block;
+  background-color: #fec;
+  -webkit-box-shadow: #333 2px 2px 4px ;
+  -moz-box-shadow: #333 2px 2px 4px ;
+  box-shadow: #333 2px 2px 4px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+}
+.banner a:hover {
+  background-color: #fd7;
+  color: #720;
 }
 th {
   color: #b50;
