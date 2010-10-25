@@ -1,6 +1,6 @@
-class CreateVendors < ActiveRecord::Migration
+class CreateSources < ActiveRecord::Migration
   def self.up
-    create_table :vendors do |t|
+    create_table :sources do |t|
       t.string :name
       t.string :website
       t.string :contact_person
@@ -9,11 +9,11 @@ class CreateVendors < ActiveRecord::Migration
       t.integer :antibodies_count, :default => 0
       t.timestamps
     end
-    add_index :vendors, :name
-    add_index :vendors, :antibodies_count
+    add_index :sources, :name
+    add_index :sources, :antibodies_count
   end
 
   def self.down
-    drop_table :vendors
+    drop_table :sources
   end
 end

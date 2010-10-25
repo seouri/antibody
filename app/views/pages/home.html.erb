@@ -10,8 +10,8 @@
       <span class="item">targets</span>
     </li>
     <li>
-      <span class="value"><%= link_to number_with_delimiter(Antibody.count("DISTINCT vendor_id")), vendors_path %></span>
-      <span class="item">vendors</span>
+      <span class="value"><%= link_to number_with_delimiter(Antibody.count("DISTINCT source_id")), sources_path %></span>
+      <span class="item">sources</span>
     </li>
     <li>
       <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT created_by")) %></span>

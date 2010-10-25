@@ -1,34 +1,34 @@
-<h1><%= @vendor.name %></h1>
+<h1><%= @source.name %></h1>
 </p>
 
 <p>
   <b>Website:</b>
-  <%= @vendor.website %>
+  <%= @source.website %>
 </p>
 
 <p>
   <b>Contact person:</b>
-  <%= @vendor.contact_person %>
+  <%= @source.contact_person %>
 </p>
 
 <p>
   <b>Contact email:</b>
-  <%= @vendor.contact_email %>
+  <%= @source.contact_email %>
 </p>
 
 <p>
   <b>Contact phone:</b>
-  <%= @vendor.contact_phone %>
+  <%= @source.contact_phone %>
 </p>
 
-<h2>Antibodies (<%= @vendor.antibodies_count %>)</h2>
+<h2>Antibodies (<%= @source.antibodies_count %>)</h2>
 <table>
   <tr>
     <th>Name</th>
     <th>Species</th>
     <th>Validations</th>
   </tr>
-<% @vendor.antibodies.each do |antibody| %>
+<% @source.antibodies.each do |antibody| %>
   <tr>
     <td><%= link_to antibody.name, antibody %></td>
     <td><%= antibody.target.species.try(:name)%></td>
@@ -37,5 +37,5 @@
 <% end %>
 </table>
 
-<%= link_to 'Edit', edit_vendor_path(@vendor) %> |
-<%= link_to 'Back', vendors_path %>
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

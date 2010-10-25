@@ -8,11 +8,13 @@ class CreateAntibodies < ActiveRecord::Migration
       t.text :antigen
       t.string :clonality
       t.string :purification
-      t.integer :vendor_id
+      t.integer :source_id
       t.string :catalogue_number
       t.string :lot_number
       t.string :url
       t.string :created_by
+      t.integer :project_targets_count, :default => 0
+      t.integer :project_antibodies_count, :default => 0
       t.timestamps
     end
   end

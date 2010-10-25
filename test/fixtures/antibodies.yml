@@ -10,7 +10,7 @@ one:
   antigen: MyText
   clonality: MyString
   purification: MyString
-  vendor: MyString
+  source: MyString
   catalogue_number: MyString
   lot_number: MyString
   url: MyString
@@ -26,7 +26,7 @@ two:
   antigen: MyText
   clonality: MyString
   purification: MyString
-  vendor: MyString
+  source: MyString
   catalogue_number: MyString
   lot_number: MyString
   url: MyString

@@ -2,7 +2,7 @@ Antibodyapp::Application.routes.draw do
   resources :projects
 
   resources :targets
-  resources :vendors
+  resources :sources
   devise_for :users
   resources :users
   resources :species
