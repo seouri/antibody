@@ -90,12 +90,12 @@ h2 {
 }
 #navigation ul {  
   margin: 0;
-  padding: 0 1em;
+  padding: 0 1.5em;
 }
 #navigation li {
   list-style: none;
   display: inline-block;
-  padding: 0.4em 1em;
+  padding: 0.4em 1.5em;
   color: #421;
   font-weight: bold;
 }
