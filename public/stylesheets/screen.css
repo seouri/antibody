@@ -1,6 +1,6 @@
 body {
   margin: 1em auto;
-  width: 820px;
+  width: 860px;
 }
 
 #main {
@@ -8,7 +8,12 @@ body {
 }
 #logo {
 }
-
+.left {
+  padding-right: 1em;
+}
+.right {
+  padding-left: 1em;
+}
 p {
   font-size: 123.1%;
   line-height: 165%;
@@ -19,6 +24,17 @@ a, a:visited {
 
 a:hover {
   color: #e82;
+}
+.banner {
+  border: 1px solid #eee;
+  padding: 1em;
+  background-color: #fec;
+  -webkit-box-shadow: #333 2px 2px 4px ;
+  -moz-box-shadow: #333 2px 2px 4px ;
+  box-shadow: #333 2px 2px 4px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
 }
 th {
   color: #b50;
