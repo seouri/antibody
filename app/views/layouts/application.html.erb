@@ -19,7 +19,7 @@
   <li><%= link_to_unless_current("Sources", sources_path) %></li>
   <li><%= link_to_unless_current("About", about_path) %></li>
 </ul>
-<ul id="usermenu" class="horizontal_menu">
+<!--ul id="usermenu" class="horizontal_menu">
 <% if user_signed_in? %>
   <li><%= link_to_unless_current("Welcome #{current_user.email}", current_user) %></li>
   <li><%= link_to_unless_current("Sign out", destroy_user_session_path) %></li>
@@ -27,7 +27,7 @@
   <li><%= link_to_unless_current('Sign in', new_user_session_path)  %></li>
   <li><%= link_to_unless_current('Sign up', new_user_registration_path) %></li>
 <% end %>
-</ul>
+</ul-->
 </div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

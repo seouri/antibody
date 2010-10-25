@@ -64,6 +64,7 @@ h1 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   line-height: 125%;
+  color: #421;
 }
 h2 {
   font-size: 197%;
@@ -72,38 +73,38 @@ h2 {
 }
 
 #navigation {
-  border-bottom: 4px solid #222;
-}
+  background: #e82; /* old browsers */
+  background: -moz-linear-gradient(top, #EDD0B4 0%, #EE8822 100%); /* firefox */
 
-ul.horizontal_menu {
-  display: inline;
-  list-style: none;	
-  margin: 0;
-  padding: 0;
-  font-size: 123.1%;
-}
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDD0B4), color-stop(100%,#EE8822)); /* webkit */
 
-.horizontal_menu li {
-  padding: 0;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDD0B4', endColorstr='#EE8822',GradientType=0 ); /* ie */
+  -webkit-box-shadow: #333 2px 2px 4px ;
+  -moz-box-shadow: #333 2px 2px 4px ;
+  box-shadow: #333 2px 2px 4px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 131%;
+}
+#navigation ul {  
   margin: 0;
+  padding: 0 1em;
+}
+#navigation li {
+  list-style: none;
   display: inline-block;
-  background-color: #222;
-  color: #fff;
-  width: 6em;
-  height: 1.75em;
-  text-align: center;
-  line-height: 1.75em
+  padding: 0.25em 1em;
+  color: #421;
+  font-weight: bold;
 }
-.horizontal_menu a, .horizontal_menu a:visited {
+#navigation li a {
   display: block;
-  color: #fff;
   text-decoration: none;
-  background-color: #888;
-  width: 6em;
-  height: 1.75em;
+  color: #841;
 }
-.horizontal_menu a:hover {
-  background-color: #555;
+#navigation li a:hover {
+  color: #c51;
 }
 #usermenu {
   float: right;
