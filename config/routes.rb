@@ -1,7 +1,10 @@
 Antibodyapp::Application.routes.draw do
   resources :projects
 
-  resources :targets
+  resources :targets do
+    get :autocomplete_target_name, :on => :collection
+    get :search, :on => :collection
+  end
   resources :sources
   devise_for :users
   resources :users

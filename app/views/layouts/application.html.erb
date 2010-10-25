@@ -3,13 +3,22 @@
 <head>
   <title>Antibodies</title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.2.0/build/cssreset/reset-min.css&3.2.0/build/cssfonts/fonts-min.css&3.2.0/build/cssgrids/grids-min.css&3.2.0/build/cssbase/base-min.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "rails", "application" %>
+  <%= javascript_include_tag "rails", "application", "autocomplete-rails" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-<%= image_tag "logo-312x65.png", :id => "logo" %>
+<div id="header">
+<%= link_to(image_tag("logo-312x65.png", :id => "logo"), root_path) %>
+<div id="search">
+  <form method="get" action="/targets" id="searchform">
+    <input type="hidden" name="id" id="autocompleted_id">
+    <input type="text" name="q" data-autocomplete="/targets/autocomplete_target_name" id_element="#autocompleted_id">
+    <input type="submit" value="search" id="searchsubmit">
+  </form>
+</div>
 <div id="navigation">
 <ul id="mainmenu" class="horizontal_menu">
   <li><%= link_to_unless_current("Home", root_path) %></li>
@@ -28,6 +37,7 @@
   <li><%= link_to_unless_current('Sign up', new_user_registration_path) %></li>
 <% end %>
 </ul-->
+</div>
 </div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
