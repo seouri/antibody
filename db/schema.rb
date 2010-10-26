@@ -83,7 +83,8 @@ ActiveRecord::Schema.define(:version => 20101024221005) do
   create_table "targets", :force => true do |t|
     t.string   "name"
     t.integer  "species_id"
-    t.integer  "antibodies_count", :default => 0
+    t.integer  "antibodies_count",      :default => 0
+    t.integer  "project_targets_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

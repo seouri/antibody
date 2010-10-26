@@ -5,16 +5,16 @@
   <%= @project.description %>
 </p>
 
-<h2>Antibodies</h2>
+<h2>Targets</h2>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Validations</th>
   </tr>
-<% @project.antibodies.each do |antibody| %>
+<% @project.targets.each do |target| %>
   <tr>
-    <td><%= link_to antibody.name, antibody %></td>
+    <td><%= link_to target.name, target %></td>
     <td></td>
   </tr>
 <% end %>
