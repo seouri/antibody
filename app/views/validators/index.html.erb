@@ -1,0 +1,11 @@
+<h1>Validators</h1>
+
+<ul class="mainlist">
+<% @validators.each do |validator| %>
+    <li><%= link_to validator.name, validator %> (<%= pluralize(validator.validator_targets_count, "target") %>)</li>
+<% end %>
+</ul>
+
+<br />
+
+<%= link_to 'New Validator', new_validator_path %>

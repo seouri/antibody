@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  validator_id: 1
+  target_id: 1
+
+two:
+  validator_id: 1
+  target_id: 1

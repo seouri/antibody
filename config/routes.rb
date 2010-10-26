@@ -1,4 +1,6 @@
 Antibodyapp::Application.routes.draw do
+  resources :validators
+
   resources :projects
 
   resources :targets do

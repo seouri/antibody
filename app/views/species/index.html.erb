@@ -1,21 +1,9 @@
 <h1>Species</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Targets</th>
-    <th>Antibodies</th>
-  </tr>
-
+<ul class="mainlist">
 <% @species.each do |species| %>
-  <tr>
-    <td><%= link_to species.long_name, species %></td>
-    <td class="number"><%= species.targets_count %></td>
-    <td class="number"><%= species.antibodies_count %></td>
-  </tr>
+  <li><%= link_to species.long_name, species %> (<%= pluralize(species.targets_count, "target") %>)</li>
 <% end %>
-</table>
-
-<br />
+</ul>
 
 <%= link_to 'New Species', new_species_path %>

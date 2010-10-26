@@ -1,0 +1,19 @@
+<h1><%= @validator.name %></h1>
+
+<h2>Targets (<%= @validator.validator_targets_count %>)</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Antibodies</th>
+  </tr>
+<% @validator.targets.each do |target| %>
+  <tr>
+    <td><%= link_to target.name, target %></td>
+    <td class="number"><%= target.antibodies_count %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_validator_path(@validator) %> |
+<%= link_to 'Back', validators_path %>

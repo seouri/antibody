@@ -18,7 +18,7 @@
       <span class="item">sources</span>
     </li>
     <li>
-      <span class="value"><%= number_with_delimiter(Antibody.count("DISTINCT created_by")) %></span>
+      <span class="value"><%= link_to number_with_delimiter(Validator.count), validators_path %></span>
       <span class="item">validators</span>
     </li>
   </ul>

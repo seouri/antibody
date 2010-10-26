@@ -150,6 +150,11 @@ h2 {
   color: #421;
 }
 
+.mainlist {
+  font-size: 123.1%;
+  line-height: 165%;
+}
+
 #navigation {
   background: #e82; /* old browsers */
   background: -moz-linear-gradient(top, #EDD0B4 0%, #EE8822 100%); /* firefox */
