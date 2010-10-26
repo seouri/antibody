@@ -2,7 +2,7 @@
 
 <ul class="mainlist">
 <% @validators.each do |validator| %>
-    <li><%= link_to validator.name, validator %> (<%= pluralize(validator.validator_targets_count, "target") %>)</li>
+    <li><%= link_to validator.name, validator %> <span class="target_counts">(<%= pluralize(validator.validator_targets_count, "target") %>)</span></li>
 <% end %>
 </ul>
 

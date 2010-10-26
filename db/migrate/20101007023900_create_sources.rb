@@ -7,6 +7,7 @@ class CreateSources < ActiveRecord::Migration
       t.string :contact_email
       t.string :contact_phone
       t.integer :antibodies_count, :default => 0
+      t.integer :source_targets_count, :default => 0
       t.timestamps
     end
     add_index :sources, :name

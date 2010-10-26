@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101026072852) do
+ActiveRecord::Schema.define(:version => 20101026124429) do
 
   create_table "antibodies", :force => true do |t|
     t.string   "name"
@@ -54,13 +54,21 @@ ActiveRecord::Schema.define(:version => 20101026072852) do
     t.datetime "updated_at"
   end
 
+  create_table "source_targets", :force => true do |t|
+    t.integer  "source_id"
+    t.integer  "target_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sources", :force => true do |t|
     t.string   "name"
     t.string   "website"
     t.string   "contact_person"
     t.string   "contact_email"
     t.string   "contact_phone"
-    t.integer  "antibodies_count", :default => 0
+    t.integer  "antibodies_count",     :default => 0
+    t.integer  "source_targets_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20101026072852) do
     t.integer  "species_id"
     t.integer  "antibodies_count",      :default => 0
     t.integer  "project_targets_count", :default => 0
+    t.integer  "source_targets_count",  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

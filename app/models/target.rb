@@ -5,6 +5,8 @@ class Target < ActiveRecord::Base
   has_many :antibodies, :order => "name"
   has_many :project_targets
   has_many :projects, :through => :project_targets
+  has_many :source_targets
+  has_many :sources, :through => :source_targets
 
   def self.search(query, options = {})
     options[:conditions] = ["#{Target.table_name}.name LIKE ?", "%#{query}%"] unless query.blank?

@@ -1,31 +1,9 @@
 <h1>Sources</h1>
-<%= paginated_section(@sources) do %>
 
-<div class="pagination_info"><%= page_entries_info @sources %></div>
-
-<table>
-  <tr>
-    <th><%= sortable "name" %></th>
-    <th><%= sortable "website" %></th>
-    <th><%= sortable "contact_person" %></th>
-    <th><%= sortable "contact_email" %></th>
-    <th><%= sortable "contact_phone" %></th>
-    <th><%= sortable "antibodies_count", "Antibodies" %></th>
-  </tr>
-
+<ul class="mainlist two_columns">
 <% @sources.each do |source| %>
-  <tr>
-    <td><%= link_to source.name, source %></td>
-    <td><%= source.website %></td>
-    <td><%= source.contact_person %></td>
-    <td><%= source.contact_email %></td>
-    <td><%= source.contact_phone %></td>
-    <td class="number"><%= source.antibodies_count %></td>
-  </tr>
+  <li><%= link_to source.name, source %> <span class="target_counts">(<%= number_with_delimiter(pluralize(source.source_targets_count, "target"))%>)</span></li>
 <% end %>
-</table>
-<% end %>
-
-<br />
+</ul>
 
 <%= link_to 'New Source', new_source_path %>

@@ -2,7 +2,7 @@
 
 <ul class="mainlist">
 <% @species.each do |species| %>
-  <li><%= link_to species.long_name, species %> (<%= pluralize(species.targets_count, "target") %>)</li>
+  <li><%= link_to species.long_name.titleize, species %> <span class="target_counts">(<%= pluralize(species.targets_count, "target") %>)</span></li>
 <% end %>
 </ul>
 

@@ -1,33 +1,35 @@
 <h1>Welcome to modENCODE Antibodies</h1>
-<div class="dashboard">
-  <ul>
-    <li>
-      <span class="value"><%= link_to number_with_delimiter(Target.count), targets_path %></span>
-      <span class="item">targets</span>
-    </li>
-    <li>
-      <span class="value"><%= link_to number_with_delimiter(Species.where("targets_count > 0").count), species_index_path %></span>
-      <span class="item">species</span>
-    </li>
-    <li>
-      <span class="value"><%= link_to number_with_delimiter(Project.count), projects_path %></span>
-      <span class="item">project</span>
-    </li>
-    <li>
-      <span class="value"><%= link_to number_with_delimiter(Antibody.count("DISTINCT source_id")), sources_path %></span>
-      <span class="item">sources</span>
-    </li>
-    <li>
-      <span class="value"><%= link_to number_with_delimiter(Validator.count), validators_path %></span>
-      <span class="item">validators</span>
-    </li>
-  </ul>
-</div>
+
 <div class="yui3-g">
   <div class="yui3-u-1-2">
     <div class="left">
       <h2>Lorem ipsum dolor sit amet</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis dolor ut ipsum consectetur molestie. Praesent laoreet adipiscing rhoncus. Morbi tempus, turpis sed aliquam mollis, quam leo consequat turpis, vitae facilisis odio est a orci. Nulla facilisi. Nullam commodo volutpat turpis, in lacinia lorem pellentesque sed. Etiam tempor, odio id aliquam laoreet, felis mauris ullamcorper augue, nec dapibus mauris nibh placerat erat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse placerat tellus id nulla ultrices venenatis. Quisque nisl diam, tincidunt sed scelerisque vitae, malesuada lobortis neque. Nulla et sapien dui. Curabitur nec dolor lectus. Phasellus sit amet laoreet leo.
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis dolor ut ipsum consectetur molestie. Praesent laoreet adipiscing rhoncus. Morbi tempus, turpis sed aliquam mollis, quam leo consequat turpis, vitae facilisis odio est a orci. Nulla facilisi. Nullam commodo volutpat turpis, in lacinia lorem pellentesque sed. Etiam tempor, odio id aliquam laoreet, felis mauris ullamcorper augue, nec dapibus mauris nibh placerat erat. </p>
+      
+      <div class="dashboard">
+        <ul>
+          <li>
+            <span class="value"><%= link_to number_with_delimiter(Target.count), targets_path %></span>
+            <span class="item">targets</span>
+          </li>
+          <li>
+            <span class="value"><%= link_to number_with_delimiter(Species.where("targets_count > 0").count), species_index_path %></span>
+            <span class="item">species</span>
+          </li>
+          <li>
+            <span class="value"><%= link_to number_with_delimiter(Source.count), sources_path %></span>
+            <span class="item">sources</span>
+          </li>
+          <li>
+            <span class="value"><%= link_to number_with_delimiter(Validator.count), validators_path %></span>
+            <span class="item">validators</span>
+          </li>
+          <li>
+            <span class="value"><%= link_to number_with_delimiter(Project.count), projects_path %></span>
+            <span class="item">project</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
     

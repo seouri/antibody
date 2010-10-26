@@ -2,7 +2,8 @@ class SourcesController < ApplicationController
   # GET /sources
   # GET /sources.xml
   def index
-    @sources = Source.order(order_string).paginate(:page => params[:page], :per_page => 10)
+    @sources = Source.order(:name)
+    #@sources = Source.order(order_string).paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb

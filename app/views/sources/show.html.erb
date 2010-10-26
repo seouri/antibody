@@ -1,38 +1,16 @@
 <h1><%= @source.name %></h1>
-</p>
 
-<p>
-  <b>Website:</b>
-  <%= @source.website %>
-</p>
+<h2>Targets (<%= @source.source_targets_count %>)</h2>
 
-<p>
-  <b>Contact person:</b>
-  <%= @source.contact_person %>
-</p>
-
-<p>
-  <b>Contact email:</b>
-  <%= @source.contact_email %>
-</p>
-
-<p>
-  <b>Contact phone:</b>
-  <%= @source.contact_phone %>
-</p>
-
-<h2>Antibodies (<%= @source.antibodies_count %>)</h2>
 <table>
   <tr>
     <th>Name</th>
-    <th>Species</th>
-    <th>Validations</th>
+    <th>Antibodies</th>
   </tr>
-<% @source.antibodies.each do |antibody| %>
+<% @source.targets.each do |target| %>
   <tr>
-    <td><%= link_to antibody.name, antibody %></td>
-    <td><%= antibody.target.species.try(:name)%></td>
-    <td></td>
+    <td><%= link_to target.name, target %></td>
+    <td class="number"><%= target.antibodies_count %></td>
   </tr>
 <% end %>
 </table>
