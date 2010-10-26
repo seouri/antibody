@@ -2,12 +2,16 @@
 <div class="dashboard">
   <ul>
     <li>
-      <span class="value"><%= link_to number_with_delimiter(Antibody.count), antibodies_path %></span>
-      <span class="item">antibodies</span>
+      <span class="value"><%= link_to number_with_delimiter(Target.count), targets_path %></span>
+      <span class="item">targets</span>
     </li>
     <li>
-      <span class="value"><%= link_to number_with_delimiter(Antibody.count("DISTINCT target_id")), targets_path %></span>
-      <span class="item">targets</span>
+      <span class="value"><%= link_to number_with_delimiter(Species.where("targets_count > 0").count), species_index_path %></span>
+      <span class="item">species</span>
+    </li>
+    <li>
+      <span class="value"><%= link_to number_with_delimiter(Project.count), projects_path %></span>
+      <span class="item">project</span>
     </li>
     <li>
       <span class="value"><%= link_to number_with_delimiter(Antibody.count("DISTINCT source_id")), sources_path %></span>

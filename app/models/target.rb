@@ -13,4 +13,8 @@ class Target < ActiveRecord::Base
     options[:order] ||= "name"
     paginate options    
   end
+
+  def name_with_species
+    "#{name} (#{self.species.name})"
+  end
 end

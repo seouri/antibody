@@ -5,13 +5,11 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Gene</th>
     <th>Antibodies</th>
   </tr>
 <% @species.targets.each do |target| %>
   <tr>
     <td><%= link_to target.name, target %></td>
-    <td><%= target.gene_id %></td>
     <td class="number"><%= target.antibodies_count %></td>
   </tr>
 <% end %>

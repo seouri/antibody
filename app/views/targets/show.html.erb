@@ -1,14 +1,5 @@
-<h1><%= @target.name %></h1>
+<h1><%= @target.name_with_species %></h1>
 
-<p>
-  <b>Species:</b>
-  <%= @target.species.try(:name) %>
-</p>
-
-<p>
-  <b>Gene:</b>
-  <%= @target.gene_id %>
-</p>
 
 <h2>Antibodies (<%= @target.antibodies_count %>)</h2>
 <table>

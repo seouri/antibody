@@ -83,13 +83,12 @@ ActiveRecord::Schema.define(:version => 20101024221005) do
   create_table "targets", :force => true do |t|
     t.string   "name"
     t.integer  "species_id"
-    t.integer  "gene_id"
     t.integer  "antibodies_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "targets", ["gene_id"], :name => "index_targets_on_gene_id"
+  add_index "targets", ["name"], :name => "index_targets_on_name"
   add_index "targets", ["species_id"], :name => "index_targets_on_species_id"
 
   create_table "users", :force => true do |t|

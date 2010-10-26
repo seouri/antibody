@@ -8,7 +8,6 @@
   <tr>
     <th><%= sortable "name" %></th>
     <th>Species</th>
-    <th>Gene</th>
     <th><%= sortable "antibodies_count", "Antibodies" %></th>
   </tr>
 
@@ -16,7 +15,6 @@
   <tr>
     <td><%= link_to target.name, target %></td>
     <td><%= target.species.try(:name) %></td>
-    <td><%= target.gene_id %></td>
     <td class="number"><%= target.antibodies_count %></td>
   </tr>
 <% end %>
