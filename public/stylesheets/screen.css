@@ -24,10 +24,12 @@ p {
 }
 a, a:visited {
   color: #b50;
+  text-decoration: none;
 }
 
 a:hover {
   color: #e82;
+  text-decoration: underline;
 }
 #search {
   display: block;
