@@ -4,7 +4,7 @@ body {
 }
 
 #main {
-  min-height: 16em;
+  min-height: 22em;
 }
 #header h1 {
   font-size: 185%;
@@ -62,7 +62,7 @@ td a {
 #searchhome {
   float: none;
   text-align: center;
-  margin: 10em 0;
+  margin: 12em 0;
   font-size: 108%;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -173,6 +173,7 @@ th a {
 }
 td {
   border: 1px solid #ddd;
+  font-size: 123.1%;
 }
 h1 {
   font-size: 300%;

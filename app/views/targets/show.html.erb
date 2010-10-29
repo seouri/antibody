@@ -7,13 +7,19 @@
     <th>Source</th>
     <th>Catalogue #</th>
     <th>Lot #</th>
+    <th>Host Species</th>
+    <th>Clonality</th>
+    <th>Purification</th>
     <th>Validations</th>
   </tr>
 <% @target.antibodies.sort_by(&:source_id).each do |antibody| %>
   <tr>
     <td><%= link_to antibody.source.name, antibody.source %></td>
-    <td><%= antibody.catalogue_number %></td>
+    <td><%= link_to_if(antibody.url.present?, antibody.catalogue_number, antibody.url) %></td>
     <td><%= antibody.lot_number %></td>
+    <td><%= antibody.host_species.try(:name)%></td>
+    <td><%= antibody.clonality %></td>
+    <td><%= antibody.purification %></td>
     <td></td>
   </tr>
 <% end %>
