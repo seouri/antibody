@@ -1,9 +1,10 @@
 <h1>Targets</h1>
 
-<%= paginated_section(@targets) do %>
+<%= alphabetical_query_list(@q) %>
 
 <div class="pagination_info"><%= page_entries_info @targets %></div>
 
+<% if @targets.size > 0 %>
 <table>
   <tr>
     <th><%= sortable "name" %></th>
@@ -20,4 +21,5 @@
 <% end %>
 </table>
 
+<%= will_paginate(@targets) %>
 <% end %>

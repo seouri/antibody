@@ -3,7 +3,8 @@ class TargetsController < ApplicationController
   # GET /targets
   # GET /targets.xml
   def index
-    @targets = Target.order(order_string).includes(:species, :antibodies => :source).paginate(:page => params[:page], :per_page => 20)
+    @q = params[:q]
+    @targets = Target.order(order_string).includes(:species, :antibodies => :source).search(@q, :page => params[:page], :per_page => 20)
 
     respond_to do |format|
       if params[:id].present?

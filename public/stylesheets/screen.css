@@ -85,7 +85,7 @@ td a {
 }
 /* autocomplete start */
 .ui-autocomplete {
-  background-color: #eee;
+  background-color: #fec;
   opacity: 0.9;
   width: 10em;
   -webkit-border-bottom-right-radius: 6px;
@@ -129,7 +129,7 @@ td a {
 .ui-menu .ui-menu-item a.ui-state-hover,
 .ui-menu .ui-menu-item a.ui-state-active {
 	font-weight: normal;
-	background-color: #ccc;
+	background-color: #fd9;
 	-webkit-border-radius: 6px;
    -moz-border-radius: 6px;
    border-radius: 6px;
@@ -165,10 +165,14 @@ td a {
 }
 th {
   color: #b50;
-  background-color: #ddd;
+  background-color: #fec;
+  border: 1px solid #ddd;
 }
 th a {
   text-decoration: none;
+}
+td {
+  border: 1px solid #ddd;
 }
 h1 {
   font-size: 300%;
@@ -327,18 +331,22 @@ h2 {
   background: white;
   /* self-clearing method: */ }
   .pagination a, .pagination span, .pagination em {
-    padding: .2em .5em;
+    padding: .2em .7em;
     display: block;
     float: left;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
     margin-right: 1px; }
   .pagination span.disabled {
     color: #999;
     border: 1px solid #DDD; }
   .pagination em {
     font-weight: bold;
-    color: white;
-    background-color: #555;
-    border: 1px solid #243356; }
+    color: #421;
+    background-color: #fec;
+    font-style: normal;;
+    border: 1px solid #421; }
   .pagination a {
     text-decoration: none;
     color: #000;
@@ -386,3 +394,25 @@ th .desc {
   background-image: url(/images/down_arrow.png);   
 }
 
+ul.alphabetical {
+  font-size: 123.1%;
+  line-height: 165%;
+  margin: 0 0 1em 0;
+  padding: 0.5em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  color: #421;
+  background-color: #fec;
+  text-align: center;
+}
+.alphabetical li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 1.7em;
+  display: inline-block;
+}
+.alphabetical a {
+  display: block;
+}

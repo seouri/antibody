@@ -1,5 +1,6 @@
 module TargetsHelper
   def target_list(targets)
+    return "" if targets.size == 0
     tr = []
     th = []
     th.push(content_tag(:th, "Name"))
