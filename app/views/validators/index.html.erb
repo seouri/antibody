@@ -5,7 +5,3 @@
     <li><%= link_to validator.name, validator %> <span class="target_counts">(<%= pluralize(validator.validator_targets_count, "target") %>)</span></li>
 <% end %>
 </ul>
-
-<br />
-
-<%= link_to 'New Validator', new_validator_path %>

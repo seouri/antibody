@@ -1,11 +1,14 @@
-<h1>Welcome to modENCODE Antibodies</h1>
+<div id="searchhome" class="home">
+  <form method="get" action="/targets" id="searchform">
+    <input type="hidden" name="id" id="autocompleted_id">
+    <input type="text" name="q" data-autocomplete="/targets/autocomplete_target_name" id_element="#autocompleted_id">
+    <input type="submit" value="search" id="searchsubmit">
+  </form>
+</div>
 
 <div class="yui3-g">
   <div class="yui3-u-1-2">
     <div class="left">
-      <h2>Lorem ipsum dolor sit amet</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis dolor ut ipsum consectetur molestie. Praesent laoreet adipiscing rhoncus. Morbi tempus, turpis sed aliquam mollis, quam leo consequat turpis, vitae facilisis odio est a orci. Nulla facilisi. Nullam commodo volutpat turpis, in lacinia lorem pellentesque sed. Etiam tempor, odio id aliquam laoreet, felis mauris ullamcorper augue, nec dapibus mauris nibh placerat erat. </p>
-      
       <div class="dashboard">
         <ul>
           <li>
@@ -35,9 +38,7 @@
     
   <div class="yui3-u-1-2">
     <div class="right">
-      <h2>Validation Procedure</h2>
-      <p><strong>Western-blot</strong> analysis was performed to test for cross-reactivity of the antibodies with unmodified histones or with non-histone proteins in nuclear or whole-cell extracts. <strong>Dot blots</strong> using a panel of modified peptides were used to test for cross-reactivity with other modifications. <strong>ChIP-chip or ChIP-seq</strong> was performed to test the ability of the antibodies to reproducibly immunoprecipitate discrete DNA regions.</p>
-      <div class="banner"><%= link_to "Assessment of histone-modification antibody quality", project_path(1)%></div>     
+      <div class="banner"><%= link_to "Data from Egelhofer et al, An assessment of histone-modification antibody quality, Nature Structural and Molecular Biology, 2010", project_path(1)%></div>     
     </div>
   </div>
 </div>

@@ -5,5 +5,3 @@
   <li><%= link_to source.name, source %> <span class="target_counts">(<%= number_with_delimiter(pluralize(source.source_targets_count, "target"))%>)</span></li>
 <% end %>
 </ul>
-
-<%= link_to 'New Source', new_source_path %>
