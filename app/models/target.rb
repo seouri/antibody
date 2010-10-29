@@ -12,7 +12,6 @@ class Target < ActiveRecord::Base
     options[:conditions] = ["#{Target.table_name}.name LIKE ?", "#{query}%"] unless query.blank?
     options[:page]      ||= 1
     options[:per_page]  ||= 20
-    options[:order] ||= "name"
     paginate options    
   end
 
