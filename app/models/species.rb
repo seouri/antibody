@@ -1,5 +1,5 @@
 class Species < ActiveRecord::Base
-  has_many :targets, :order => "name"
+  has_many :targets, :order => "name", :include => :species
   has_many :antibodies, :order => "name"
 
   def long_name

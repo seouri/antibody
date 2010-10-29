@@ -1,16 +1,4 @@
 <h1><%= @species.name.titleize %> (<%= @species.scientific_name %>)</h1>
 
-<h2>Targets (<%= @species.targets_count %>)</h2>
+<%= target_list(@species.targets)%>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Antibodies</th>
-  </tr>
-<% @species.targets.each do |target| %>
-  <tr>
-    <td><%= link_to target.name, target %></td>
-    <td class="number"><%= target.antibodies_count %></td>
-  </tr>
-<% end %>
-</table>

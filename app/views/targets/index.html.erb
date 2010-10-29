@@ -14,7 +14,7 @@
 <% @targets.each do |target| %>
   <tr>
     <td><%= link_to target.name, target %></td>
-    <td><%= target.species.try(:name) %></td>
+    <td><%= link_to target.species.name, target.species %></td>
     <td class="number"><%= target.antibodies_count %></td>
   </tr>
 <% end %>

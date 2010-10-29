@@ -5,19 +5,4 @@
   <%= @project.description %>
 </p>
 
-<h2>Targets</h2>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Validations</th>
-  </tr>
-<% @project.targets.each do |target| %>
-  <tr>
-    <td><%= link_to target.name, target %></td>
-    <td></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= target_list(@project.targets)%>

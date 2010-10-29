@@ -4,16 +4,18 @@
 <h2>Antibodies (<%= @target.antibodies_count %>)</h2>
 <table>
   <tr>
-    <th>Name</th>
+    <th>Source</th>
+    <th>Catalogue #</th>
+    <th>Lot #</th>
     <th>Validations</th>
   </tr>
-<% @target.antibodies.each do |antibody| %>
+<% @target.antibodies.sort_by(&:source_id).each do |antibody| %>
   <tr>
-    <td><%= link_to antibody.name, antibody %></td>
+    <td><%= link_to antibody.source.name, antibody.source %></td>
+    <td><%= antibody.catalogue_number %></td>
+    <td><%= antibody.lot_number %></td>
     <td></td>
   </tr>
 <% end %>
 </table>
 
-<%= link_to 'Edit', edit_target_path(@target) %> |
-<%= link_to 'Back', targets_path %>
