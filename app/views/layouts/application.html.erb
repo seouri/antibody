@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Antibody Validation Database</title>
+  <title><%= controller.controller_name == "pages" ? controller.action_name.titleize : controller.controller_name.titleize %> | Antibody Validation Database</title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.2.0/build/cssreset/reset-min.css&3.2.0/build/cssfonts/fonts-min.css&3.2.0/build/cssgrids/grids-min.css&3.2.0/build/cssbase/base-min.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
@@ -25,11 +25,11 @@
 <div id="navigation">
 <ul id="mainmenu" class="horizontal_menu">
   <li><%= link_to_unless_current("Home", root_path) %></li>
-  <li><%= link_to_unless_current("Targets", targets_path) %></li>
-  <li><%= link_to_unless_current("Species", species_index_path) %></li>
-  <li><%= link_to_unless_current("Sources", sources_path) %></li>
-  <li><%= link_to_unless_current("Validators", validators_path) %></li>
-  <li><%= link_to_unless_current("Projects", projects_path) %></li>
+  <li><%= link_to_unless(controller.controller_name == "targets", "Targets", targets_path) %></li>
+  <li><%= link_to_unless(controller.controller_name == "species", "Species", species_index_path) %></li>
+  <li><%= link_to_unless(controller.controller_name == "sources", "Sources", sources_path) %></li>
+  <li><%= link_to_unless(controller.controller_name == "validators", "Validators", validators_path) %></li>
+  <li><%= link_to_unless(controller.controller_name == "projects", "Projects", projects_path) %></li>
   <li><%= link_to_unless_current("Upload", root_path) %></li>
   <li class="about"><%= link_to_unless_current("About", about_path) %></li>
 </ul>
