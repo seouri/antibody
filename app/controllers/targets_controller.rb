@@ -4,7 +4,8 @@ class TargetsController < ApplicationController
   # GET /targets.xml
   def index
     @q = params[:q]
-    @targets = Target.order(order_string).includes(:species, :antibodies => :source).search(@q, :page => params[:page], :per_page => 20)
+    total_entries = Target.count if @q.blank?
+    @targets = Target.order(order_string).includes(:species, :antibodies => :source).search(@q, :page => params[:page], :per_page => 20, :total_entries => total_entries)
 
     respond_to do |format|
       if params[:id].present?
