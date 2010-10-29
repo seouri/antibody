@@ -31,6 +31,9 @@ a:hover {
   color: #e82;
   text-decoration: underline;
 }
+td a {
+  display: block;
+}
 #search {
   display: block;
   float: right;
