@@ -19,4 +19,8 @@ module ApplicationHelper
   def nav_class(name)
     controller.controller_name == name ? "current" : 0
   end
+
+  def page_title(title)
+      content_for(:title) {title}
+  end
 end
