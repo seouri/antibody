@@ -247,6 +247,11 @@ h2 {
 #navigation li a:hover {
   color: #c51;
 }
+#navigation li a.current {
+  display: block;
+  text-decoration: none;
+  color: #421;
+}
 #usermenu {
   float: right;
 }

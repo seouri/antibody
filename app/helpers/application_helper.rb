@@ -15,4 +15,8 @@ module ApplicationHelper
     end
     content_tag :ul, list.join("\n").html_safe, :class => "alphabetical"
   end
+
+  def nav_class(name)
+    controller.controller_name == name ? "current" : 0
+  end
 end
