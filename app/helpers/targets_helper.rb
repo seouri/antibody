@@ -4,7 +4,7 @@ module TargetsHelper
     tr = []
     th = []
     th.push(content_tag(:th, "Name"))
-    th.push(content_tag(:th, "Species"))
+    th.push(content_tag(:th, "Target Species"))
     th.push(content_tag(:th, "Antibodies"))
     tr.push(content_tag(:tr, th.join("\t").html_safe))
     targets.each do |target|
