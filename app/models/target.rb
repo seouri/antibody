@@ -10,7 +10,7 @@ class Target < ActiveRecord::Base
   has_many :sources, :through => :source_targets
 
   def self.search(query, options = {})
-    options[:conditions] = ["LOWER(#{Target.table_name}.name) LIKE ?", "#{query}%"] unless query.blank?
+    options[:conditions] = ["LOWER(#{Target.table_name}.name) LIKE ?", "#{query.downcase}%"] unless query.blank?
     options[:page]      ||= 1
     options[:per_page]  ||= 20
     paginate options    
