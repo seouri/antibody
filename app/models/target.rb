@@ -19,4 +19,12 @@ class Target < ActiveRecord::Base
   def name_with_species
     "#{name} (#{self.species.name})"
   end
+
+  def name_with_species_and_counts
+    a_count, v_count = self.antibodies_count, self.validations_count
+    new_name = "#{name} (#{self.species.name})"
+    new_name += ": #{a_count} #{(a_count == 0 or a_count > 1) ? "antibodies" : "antibody"}"
+    new_name += " with #{v_count} #{(v_count == 0 or v_count > 1) ? "validations" : "validation"}"
+    new_name
+  end
 end

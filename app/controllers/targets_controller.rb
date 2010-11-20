@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  autocomplete :target, :name, :full => true, :display_value => :name_with_species
+  autocomplete :target, :name, :full => true, :display_value => :name_with_species_and_counts
   # GET /targets
   # GET /targets.xml
   def index

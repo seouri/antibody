@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20101120032804) do
     t.string   "name"
     t.integer  "species_id"
     t.integer  "antibodies_count",      :default => 0
+    t.integer  "validations_count",     :default => 0
     t.integer  "project_targets_count", :default => 0
     t.integer  "source_targets_count",  :default => 0
     t.datetime "created_at"
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20101120032804) do
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
   create_table "validations", :force => true do |t|
+    t.integer  "target_id"
     t.integer  "antibody_id"
     t.integer  "validator_id"
     t.string   "category"

@@ -4,6 +4,7 @@ class CreateTargets < ActiveRecord::Migration
       t.string :name
       t.integer :species_id
       t.integer :antibodies_count, :default => 0
+      t.integer :validations_count, :default => 0
       t.integer :project_targets_count, :default => 0
       t.integer :source_targets_count, :default => 0
       t.timestamps
