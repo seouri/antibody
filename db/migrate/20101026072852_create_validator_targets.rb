@@ -3,9 +3,8 @@ class CreateValidatorTargets < ActiveRecord::Migration
     create_table :validator_targets do |t|
       t.integer :validator_id
       t.integer :target_id
-
-      t.timestamps
     end
+    add_index :validator_targets, :validator_id
   end
 
   def self.down

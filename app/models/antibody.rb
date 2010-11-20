@@ -4,4 +4,5 @@ class Antibody < ActiveRecord::Base
   belongs_to :target, :counter_cache => true
   belongs_to :source, :counter_cache => true
   belongs_to :host_species, :class_name => 'Species'
+  has_many :validations, :order => "category desc"
 end

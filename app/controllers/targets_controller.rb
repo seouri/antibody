@@ -5,7 +5,7 @@ class TargetsController < ApplicationController
   def index
     @q = params[:q]
     total_entries = Target.count if @q.blank?
-    @targets = Target.order(order_string).includes(:species, :antibodies => :source).search(@q, :page => params[:page], :per_page => 20, :total_entries => total_entries)
+    @targets = Target.order(order_string).includes(:species, :validations, :antibodies => :source).search(@q, :page => params[:page], :per_page => 20, :total_entries => total_entries)
 
     respond_to do |format|
       if params[:id].present?
@@ -21,7 +21,7 @@ class TargetsController < ApplicationController
   # GET /targets/1
   # GET /targets/1.xml
   def show
-    @target = Target.find(params[:id])
+    @target = Target.where(:id => params[:id]).includes(:antibodies => [:host_species, :validations => :species]).first
 
     respond_to do |format|
       format.html # show.html.erb

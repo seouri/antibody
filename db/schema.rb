@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101026124429) do
+ActiveRecord::Schema.define(:version => 20101120032804) do
 
   create_table "antibodies", :force => true do |t|
     t.string   "name"
@@ -27,9 +27,12 @@ ActiveRecord::Schema.define(:version => 20101026124429) do
     t.string   "created_by"
     t.integer  "project_targets_count",    :default => 0
     t.integer  "project_antibodies_count", :default => 0
+    t.integer  "validations_count",        :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "antibodies", ["target_id"], :name => "index_antibodies_on_target_id"
 
   create_table "project_antibodies", :force => true do |t|
     t.integer  "project_id"
@@ -129,12 +132,25 @@ ActiveRecord::Schema.define(:version => 20101026124429) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
-  create_table "validator_targets", :force => true do |t|
-    t.integer  "validator_id"
-    t.integer  "target_id"
+  create_table "validations", :force => true do |t|
+    t.integer  "antibody_id"
+    t.string   "category"
+    t.integer  "species_id"
+    t.string   "result"
+    t.string   "notes"
+    t.string   "conditions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "validations", ["antibody_id"], :name => "index_validations_on_antibody_id"
+
+  create_table "validator_targets", :force => true do |t|
+    t.integer "validator_id"
+    t.integer "target_id"
+  end
+
+  add_index "validator_targets", ["validator_id"], :name => "index_validator_targets_on_validator_id"
 
   create_table "validators", :force => true do |t|
     t.string   "name"

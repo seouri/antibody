@@ -15,11 +15,14 @@ class CreateAntibodies < ActiveRecord::Migration
       t.string :created_by
       t.integer :project_targets_count, :default => 0
       t.integer :project_antibodies_count, :default => 0
+      t.integer :validations_count, :default => 0
       t.timestamps
     end
+    add_index :antibodies, :target_id
   end
 
   def self.down
+    remove_index :antibodies, :target_id
     drop_table :antibodies
   end
 end

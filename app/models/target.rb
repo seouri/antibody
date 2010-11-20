@@ -3,6 +3,7 @@ class Target < ActiveRecord::Base
   @@per_page = 20
   belongs_to :species, :counter_cache => true
   has_many :antibodies, :order => "name", :include => :source
+  has_many :validations, :through => :antibodies
   has_many :project_targets
   has_many :projects, :through => :project_targets
   has_many :source_targets

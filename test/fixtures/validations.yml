@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  antibody_id: 1
+  type: MyString
+  species_id: 1
+  result: MyString
+  notes: MyString
+  conditions: MyString
+
+two:
+  antibody_id: 1
+  type: MyString
+  species_id: 1
+  result: MyString
+  notes: MyString
+  conditions: MyString

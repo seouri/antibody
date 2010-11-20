@@ -1,71 +1,44 @@
-<h1><%= @antibody.name %></h1>
-  
+<h1><%= link_to @antibody.target.name_with_species, @antibody.target %></h1>
 
-<p>
-  <b>Description:</b>
-  <%= @antibody.description %>
-</p>
+<table class="antibodies">
+  <tr>
+    <th>Source</th>
+    <th>Catalogue #</th>
+    <th>Lot #</th>
+    <th>Host Species</th>
+    <th>Clonality</th>
+    <th>Purification</th>
+    <th>Validations</th>
+  </tr>
+  <tr>
+    <td><%= link_to @antibody.source.name, @antibody.source %></td>
+    <td><%= link_to_if(@antibody.url.present?, @antibody.catalogue_number, @antibody.url) %></td>
+    <td><%= @antibody.lot_number %></td>
+    <td><%= @antibody.host_species.try(:name)%></td>
+    <td><%= @antibody.clonality %></td>
+    <td><%= @antibody.purification %></td>
+    <td><%= validation_by_type(@antibody.validations) %></td>
+  </tr>
+</table>
 
-<p>
-  <b>Target species:</b>
-  <%= @antibody.target.species.try(:name) %>
-</p>
-
-<p>
-  <b>Target name:</b>
-  <%= link_to @antibody.target.name, @antibody.target %>
-</p>
-
-<p>
-  <b>Target gene product:</b>
-  <%= @antibody.target.gene_id %>
-</p>
-
-<p>
-  <b>Host species:</b>
-  <%= @antibody.host_species.name %>
-</p>
-
-<p>
-  <b>Antigen:</b>
-  <%= @antibody.antigen %>
-</p>
-
-<p>
-  <b>Clonality:</b>
-  <%= @antibody.clonality %>
-</p>
-
-<p>
-  <b>Purification:</b>
-  <%= @antibody.purification %>
-</p>
-
-<p>
-  <b>Source:</b>
-  <%= link_to @antibody.source.name, @antibody.source %>
-</p>
-
-<p>
-  <b>Catalogue number:</b>
-  <%= @antibody.catalogue_number %>
-</p>
-
-<p>
-  <b>Lot number:</b>
-  <%= @antibody.lot_number %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @antibody.url %>
-</p>
-
-<p>
-  <b>Created by:</b>
-  <%= @antibody.created_by %>
-</p>
-
-
-<%= link_to 'Edit', edit_antibody_path(@antibody) %> |
-<%= link_to 'Back', antibodies_path %>
+<% if @antibody.validations_count > 0 %>
+<h2>Validations</h2>
+<table class="validations">
+  <tr>
+    <th>Category</th>
+    <th>Species</th>
+    <th>Result</th>
+    <th>Notes</th>
+    <th>Conditions</th>
+  </tr>
+  <% @antibody.validations.each do |validation| %>
+  <tr>
+    <td class="category_<%= validation.category.first.downcase %>"><%= validation.category %></td>
+    <td><%= link_to validation.species.name, validation.species %></td>
+    <td><%= validation.result %></td>
+    <td><%= validation.notes %></td>
+    <td><%= validation.conditions %></td>
+  </tr>
+  <% end %>
+</table>
+<% end %>

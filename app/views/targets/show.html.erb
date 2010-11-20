@@ -3,7 +3,7 @@
 
 
 <h2>Antibodies (<%= @target.antibodies_count %>)</h2>
-<table>
+<table class="antibodies">
   <tr>
     <th>Source</th>
     <th>Catalogue #</th>
@@ -21,7 +21,7 @@
     <td><%= antibody.host_species.try(:name)%></td>
     <td><%= antibody.clonality %></td>
     <td><%= antibody.purification %></td>
-    <td></td>
+    <td><%= link_to(validation_by_type(antibody.validations), antibody) %></td>
   </tr>
 <% end %>
 </table>
