@@ -21,7 +21,7 @@ class TargetsController < ApplicationController
   # GET /targets/1
   # GET /targets/1.xml
   def show
-    @target = Target.where(:id => params[:id]).includes(:antibodies => [:host_species, :validations => :species]).first
+    @target = Target.where(:id => params[:id]).includes(:antibodies => [:host_species, {:validations => :species}]).first
 
     respond_to do |format|
       format.html # show.html.erb
