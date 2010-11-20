@@ -1,7 +1,7 @@
 <div id="searchhome" class="home">
-  <form method="get" action="/targets" id="searchform">
+  <form method="get" action="<%= targets_url %>" id="searchform">
     <input type="hidden" name="id" id="autocompleted_id">
-    <input type="text" name="q" data-autocomplete="/targets/autocomplete_target_name" id_element="#autocompleted_id">
+    <input type="text" name="q" data-autocomplete="<%= autocomplete_target_name_targets_url %>" id_element="#autocompleted_id">
     <input type="submit" value="search" id="searchsubmit">
   </form>
 </div>
