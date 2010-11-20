@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20101120032804) do
 
   create_table "validations", :force => true do |t|
     t.integer  "antibody_id"
+    t.integer  "validator_id"
     t.string   "category"
     t.integer  "species_id"
     t.string   "result"
@@ -156,6 +157,7 @@ ActiveRecord::Schema.define(:version => 20101120032804) do
     t.string   "name"
     t.integer  "validator_targets_count", :default => 0
     t.integer  "antibodies_count",        :default => 0
+    t.integer  "validations_count",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -4,7 +4,7 @@ class CreateValidators < ActiveRecord::Migration
       t.string :name
       t.integer :validator_targets_count, :default => 0
       t.integer :antibodies_count, :default => 0
-
+      t.integer :validations_count, :default => 0
       t.timestamps
     end
   end

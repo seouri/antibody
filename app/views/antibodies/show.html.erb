@@ -30,6 +30,7 @@
     <th>Result</th>
     <th>Notes</th>
     <th>Conditions</th>
+    <th>Validator</th>
   </tr>
   <% @antibody.validations.each do |validation| %>
   <tr>
@@ -38,6 +39,7 @@
     <td><%= validation.result %></td>
     <td><%= validation.notes %></td>
     <td><%= validation.conditions %></td>
+    <td><%= link_to validation.validator.name, validation.validator %></td>
   </tr>
   <% end %>
 </table>
