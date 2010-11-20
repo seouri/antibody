@@ -11,7 +11,9 @@ class CreateValidations < ActiveRecord::Migration
       t.string :conditions
       t.timestamps
     end
+    add_index :validations, :target_id
     add_index :validations, :antibody_id
+    add_index :validations, :validator_id
   end
 
   def self.down

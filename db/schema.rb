@@ -147,6 +147,8 @@ ActiveRecord::Schema.define(:version => 20101120032804) do
   end
 
   add_index "validations", ["antibody_id"], :name => "index_validations_on_antibody_id"
+  add_index "validations", ["target_id"], :name => "index_validations_on_target_id"
+  add_index "validations", ["validator_id"], :name => "index_validations_on_validator_id"
 
   create_table "validator_targets", :force => true do |t|
     t.integer "validator_id"
