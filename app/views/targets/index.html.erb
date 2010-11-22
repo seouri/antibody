@@ -19,7 +19,7 @@
     <td><%= link_to target.name, target %></td>
     <td><%= link_to target.species.name, target.species %></td>
     <td class="number"><%= target.antibodies_count %></td>
-    <td class="number"><%= validation_by_type(target.validations)%></td>
+    <td class="number"><%= link_to(validation_by_type(target.validations), target)%></td>
     <td><%= validated_species(target.validations)%></td>
   </tr>
 <% end %>

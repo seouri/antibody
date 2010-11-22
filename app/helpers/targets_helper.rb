@@ -14,7 +14,7 @@ module TargetsHelper
       td.push(content_tag(:td, link_to(target.name, target)))
       td.push(content_tag(:td, link_to(target.species.name, target.species)))
       td.push(content_tag(:td, target.antibodies_count, :class => "number"))
-      td.push(content_tag(:td, validation_by_type(target.validations), :class => "number"))
+      td.push(content_tag(:td, link_to(validation_by_type(target.validations), target)))
       td.push(content_tag(:td, validated_species(target.validations)))
       tr.push(content_tag(:tr, td.join("\n").html_safe))
     end
