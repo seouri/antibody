@@ -22,7 +22,7 @@ module TargetsHelper
   def validation_by_type(validations)
     count = []
     v = validations.group_by(&:category)
-    ["Western blot", "Dot blot", "ChIP-chip or Chip-seq"].each do |category|
+    ["Western blot", "Dot blot", "ChIP-chip/seq"].each do |category|
       value = v[category].present? ? v[category].size : 0
       css_class = v[category].present? ? "validation_" + category.first.downcase : "validation_blank"
       count.push(content_tag(:span, value, :class =>css_class, :title => category))
