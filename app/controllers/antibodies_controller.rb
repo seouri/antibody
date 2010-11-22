@@ -81,6 +81,16 @@ class AntibodiesController < ApplicationController
     end
   end
 
+  def validation_image
+    image ||= Image.find(params[:id])
+    send_data(
+      image.binary_data,
+      :type => image.content_type, 
+      :filename => image.filename || "validation-#{image.id}.#{image.content_type.split(/\//).last}",
+      :disposition => 'inline'
+    )
+  end
+
 private
   def sort_column  
     Antibody.column_names.include?(params[:sort]) ? params[:sort] : "name"  

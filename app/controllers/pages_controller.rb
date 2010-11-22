@@ -5,4 +5,6 @@ class PagesController < ApplicationController
   def about
   end
 
+  def upload
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101120032804) do
+ActiveRecord::Schema.define(:version => 20101120150305) do
 
   create_table "antibodies", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20101120032804) do
   end
 
   add_index "antibodies", ["target_id"], :name => "index_antibodies_on_target_id"
+
+  create_table "images", :force => true do |t|
+    t.integer "validation_id"
+    t.string  "filename"
+    t.string  "description"
+    t.string  "content_type"
+    t.binary  "binary_data",   :limit => 2147483647
+  end
+
+  add_index "images", ["validation_id"], :name => "index_images_on_validation_id"
 
   create_table "project_antibodies", :force => true do |t|
     t.integer  "project_id"
