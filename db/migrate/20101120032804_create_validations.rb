@@ -6,7 +6,7 @@ class CreateValidations < ActiveRecord::Migration
       t.integer :validator_id
       t.string :category
       t.integer :species_id
-      t.string :result
+      t.boolean :passed
       t.string :notes
       t.string :conditions
       t.string :image_file_name

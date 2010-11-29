@@ -458,7 +458,12 @@ table.antibodies, table.validations {
 .category_w, .category_d, .category_c {
   white-space: nowrap;
 }
-
+.Passed {
+  color: #090;
+}
+.Failed {
+  color: #900;
+}
 .selected {
   background-color: #fec;
 }

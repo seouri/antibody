@@ -6,4 +6,8 @@ class Validation < ActiveRecord::Base
   has_many :images
   #validates_presence_of :target_id, :antibody_id, :validator_id, :category #, :result
   has_attached_file :image
+
+  def result
+    self.passed? ? "Passed" : "Failed"
+  end
 end
