@@ -8,15 +8,17 @@
     <th>Host Species</th>
     <th>Clonality</th>
     <th>Purification</th>
+    <th>Source Website</th>
     <th>Validations</th>
   </tr>
   <tr>
     <td><%= link_to @antibody.source.name, @antibody.source %></td>
-    <td><%= link_to_if(@antibody.url.present?, @antibody.catalogue_number, @antibody.url) %></td>
+    <td><%= @antibody.catalogue_number %></td>
     <td><%= @antibody.lot_number %></td>
     <td><%= @antibody.host_species.try(:name)%></td>
     <td><%= @antibody.clonality %></td>
     <td><%= @antibody.purification %></td>
+    <td><%= link_to("Open", @antibody.url, :target => "_blank") if @antibody.url.present? %></td>
     <td><%= validation_by_type(@antibody.validations) %></td>
   </tr>
 </table>
