@@ -458,3 +458,23 @@ table.antibodies, table.validations {
 .category_w, .category_d, .category_c {
   white-space: nowrap;
 }
+
+.selected {
+  background-color: #fec;
+}
+#error_explanation {
+  color: #c00;
+  background-color: #fec;
+  padding: 1em;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#error_explanation h2 {
+  color: #c00;
+  font-size: 100%;
+  margin-top: 0;
+}
+.field_with_errors {
+  border: 2px solid #f00;
+}

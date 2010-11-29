@@ -19,10 +19,10 @@ class CreateAntibodies < ActiveRecord::Migration
       t.timestamps
     end
     add_index :antibodies, :target_id
+    #add_index :antibodies, [:source_id, :catalogue_number, :lot_number], :unique => true, :name => "index_antibodies_on_source_catalogue_lot"
   end
 
   def self.down
-    remove_index :antibodies, :target_id
     drop_table :antibodies
   end
 end

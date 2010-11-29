@@ -1,3 +1,79 @@
-<h1>Upload New Validation</h1>
+<h1>Upload New Antibody Validation</h1>
 
-<h2>Step 1: Find Target</h2>
+<h2>Step 1. Find Target: <span class="selected"><%= @target.try(:name_with_species) %></span></h2>
+<% if @target.present? %>
+  <%= link_to("Find another target", upload_url) %>
+<% else %>
+  <%= form_tag upload_url, :method => 'get' do %>
+    <%= text_field_tag :find_target, params[:find_target] %>
+    <%= submit_tag "Search", :name => nil%>
+  <% end %>
+  <div id="targets"><%= render 'targets' %></div>
+<% end %>
+<h2>Step 2. Find Antibody: <span class="selected"><%= @antibody.try(:source_with_catalogue_and_lot_number)%></span></h2>
+<% if @target.present? and @antibody.nil? %>
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Catalogue #</th>
+    <th>Lot #</th>
+    <th>Select</th>
+  </tr>
+  <% for item in @target.antibodies %>
+  <tr>
+    <td><%= item.source.name %></td>
+    <td><%= item.catalogue_number %></td>
+    <td><%= item.lot_number %></td>
+    <td><%= link_to("Select", upload_url(:target_id => @target, :antibody_id => item))%></td>
+  </tr>
+  <% end %>
+</table>
+<% end %>
+<%= link_to("Find another antibody", upload_url(:target_id => @target)) if @antibody.present? %>
+
+
+<h2>Step 3. Upload Validation</h2>
+<% if @target.present? and @antibody.present? %>
+  <%= form_for(@validation, :url => create_validation_url, :html => {:multipart => true}) do |f| %>
+    <%= f.hidden_field :target_id %>
+    <%= f.hidden_field :antibody_id %>
+    <%= f.hidden_field :validator_id %>
+    <% if @validation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@validation.errors.count, "error") %> prohibited this validation from being saved:</h2>
+
+        <ul>
+        <% @validation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :validated_species %><br />
+      <%= f.select :species_id, options_from_collection_for_select(Species.order("targets_count desc"), :id, :name) %>
+    </div>
+    <div class="field">
+      <%= f.label :category %><br />
+      <%= f.select :category, options_from_collection_for_select(Validation.select("distinct(category)").order("category desc"), :category, :category) %>
+    </div>
+    <div class="field">
+      <%= f.label :result %> <%= f.text_field :result %>
+    </div>
+    <div class="field">
+      <%= f.label :notes %><br />
+      <%= f.text_field :notes %>
+    </div>
+    <div class="field">
+      <%= f.label :conditions %><br />
+      <%= f.text_field :conditions %>
+    </div>
+    <div class="field">
+      <%= f.label :image %><br />
+      <%= f.file_field :image, :accept => 'image/png,image/gif,image/jpeg' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% end %>

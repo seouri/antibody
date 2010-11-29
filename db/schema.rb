@@ -152,11 +152,16 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
     t.string   "result"
     t.string   "notes"
     t.string   "conditions"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "validations", ["antibody_id"], :name => "index_validations_on_antibody_id"
+  add_index "validations", ["category"], :name => "index_validations_on_category"
   add_index "validations", ["target_id"], :name => "index_validations_on_target_id"
   add_index "validations", ["validator_id"], :name => "index_validations_on_validator_id"
 

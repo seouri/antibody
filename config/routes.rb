@@ -15,6 +15,7 @@ Antibodyapp::Application.routes.draw do
   root :to => "pages#home"
   match 'about' => "pages#about"
   match 'upload' => "pages#upload"
+  match 'create_validation' => "pages#create_validation"
   match 'validation_image/:id' => 'antibodies#validation_image'
 
   # The priority is based upon order of creation:
