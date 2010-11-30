@@ -504,3 +504,76 @@ table.antibodies, table.validations {
 table.targets {
   width: 100%;
 }
+/* upload forms start */
+.upload input {
+  margin: 0;
+  padding: 0.25em;
+  border: 2px solid #e82;
+  font-size: 150%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 15em;
+}
+.upload input[type="submit"] {
+  width: 4.8em;
+  background-color: #e82;
+  color: #fff;
+}
+.upload input.right {
+  float: right;
+}
+.upload input[type="radio"] {
+  width:1em;
+  background-color: #e82;
+  color: #fff;
+}
+.upload input[type="file"] {
+  width:30em;
+  border: 0;
+}
+.upload input.long {
+  width: 32.2em;
+}
+ul.upload {
+  margin-bottom: 2em;
+  padding: 0;
+}
+ul.upload li {
+  font-size: 150%;
+  margin: 0 0 0.5em 0;
+  list-style: disc;
+  width:20em;
+  float: left;
+}
+ul.upload:after, .upload input.right:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.upload label {
+  font-size: 150%;
+  width: 8.2em;
+  display: inline-block;
+  text-align: right;
+  margin: 0.5em 0.8em 0.5em 0;
+  color: #421;
+}
+.upload label.radio {
+  font-size: 150%;
+  display: inline-block;
+  width: 7em;
+  color: #000;
+  text-align: left;
+}
+
+.upload select {
+  font-size: 150%;
+}
+.examples {
+  text-align: right;
+  margin-bottom: 1em;
+}
+/* upload forms end */

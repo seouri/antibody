@@ -4,11 +4,17 @@
 <% if @target.present? %>
   <%= link_to("Find another target", upload_url) %>
 <% else %>
-  <%= form_tag upload_url, :method => 'get' do %>
+  <%= form_tag upload_url, :method => 'get', :class => "upload" do %>
     <%= text_field_tag :find_target, params[:find_target] %>
     <%= submit_tag "Search", :name => nil%>
   <% end %>
-  <div id="targets"><%= render 'targets' %></div>
+  <div id="targets">
+    <% if @targets.present? %>
+      <%= render 'targets' %>
+    <% elsif params[:find_target].present? %>
+      <%= render 'new_target'%>
+    <% end %>
+  </div>
 <% end %>
 <h2>Step 2. Find Antibody: <span class="selected"><%= @antibody.try(:source_with_catalogue_and_lot_number)%></span></h2>
 <% if @target.present? and @antibody.nil? %>
@@ -34,7 +40,7 @@
 
 <h2>Step 3. Upload Validation</h2>
 <% if @target.present? and @antibody.present? %>
-  <%= form_for(@validation, :url => create_validation_url, :html => {:multipart => true}) do |f| %>
+  <%= form_for(@validation, :url => create_validation_url, :html => {:multipart => true, :class => "upload"}) do |f| %>
     <%= f.hidden_field :target_id %>
     <%= f.hidden_field :antibody_id %>
     <%= f.hidden_field :validator_id %>
@@ -50,30 +56,37 @@
       </div>
     <% end %>
     <div class="field">
-      <%= f.label :validated_species %><br />
+      <%= f.label :validated_species %>
       <%= f.select :species_id, options_from_collection_for_select(Species.order("targets_count desc"), :id, :name) %>
     </div>
     <div class="field">
-      <%= f.label :category %><br />
-      <%= f.select :category, options_from_collection_for_select(Validation.select("distinct(category)").order("category desc"), :category, :category) %>
+      <%= f.label :category %>
+      <%= f.radio_button :category, "Western blot" %> <%= f.label :category_western_blot, "Western blot", :class => "radio" %>
+      <%= f.radio_button :category, "Dot blot" %> <%= f.label :category_dot_blot, "Dot blot", :class => "radio"  %>
+      <%= f.radio_button :category, "ChIP-chip/seq" %> <%= f.label "category_chip-chipseq", "ChIP-chip/seq", :class => "radio"  %>
     </div>
     <div class="field">
-      <%= f.label :result %> <%= f.text_field :result %>
+      <%= f.label :result %> <%= f.radio_button :passed, true %> <%= f.label :passed_true, "Passed", :class => "radio"%>
+      <%= f.radio_button :passed, false %> <%= f.label :passed_false, "Failed", :class => "radio"%>
     </div>
     <div class="field">
-      <%= f.label :notes %><br />
-      <%= f.text_field :notes %>
+      <%= f.label :notes %>
+      <%= f.text_field :notes, :class => "long" %>
+      <div class="examples">e.g. "Single histone band" or "Histone + other bands"</div>
+      <div class="examples">e.g. "Specific (90%); Cross-reacting peptides: H3K36me2 (<10%)"</div>
+      <div class="examples">e.g. "Marketed as ChIP grade"</div>
     </div>
     <div class="field">
-      <%= f.label :conditions %><br />
-      <%= f.text_field :conditions %>
+      <%= f.label :conditions %>
+      <%= f.text_field :conditions, :class => "long" %>
+      <div class="examples">e.g. "0.5 ug/ml ON at 4C" or "1:2000 ON at 4C"</div>
     </div>
     <div class="field">
-      <%= f.label :image %><br />
+      <%= f.label :image %>
       <%= f.file_field :image, :accept => 'image/png,image/gif,image/jpeg' %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit("save", :class => "right") %>
     </div>
   <% end %>
 <% end %>

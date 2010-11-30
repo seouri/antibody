@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def upload
-    @targets = Target.where(["name like ?", "%#{params[:find_target]}%"]).order("name").limit(10) if params[:find_target].present?
+    @targets = Target.where(["name like ?", "%#{params[:find_target]}%"]).order("name") if params[:find_target].present?
     @target = Target.find(params[:target_id]) if params[:target_id].present?
     @antibody = @target.antibodies.find(params[:antibody_id]) if params[:antibody_id].present?
     @validation = @antibody.validations.new(:target_id => @target.id, :validator_id => 1) if @antibody.present?
