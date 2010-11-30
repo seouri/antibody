@@ -10,8 +10,8 @@
     <th>Lot #</th>
     <th>Host Species</th>
     <th>Clonality</th>
-    <th>Purification</th>
     <th>Validations</th>
+    <th>Passed / Total</th>
   </tr>
 <% @target.antibodies.sort_by(&:source_id).each do |antibody| %>
   <tr>
@@ -20,8 +20,8 @@
     <td><%= antibody.lot_number %></td>
     <td><%= antibody.host_species.try(:name)%></td>
     <td><%= antibody.clonality %></td>
-    <td><%= antibody.purification %></td>
     <td><%= link_to(validation_by_type(antibody.validations), antibody) %></td>
+    <td><%= link_to(validation_results(antibody.validations), antibody) %></td>
   </tr>
 <% end %>
 </table>

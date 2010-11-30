@@ -5,13 +5,14 @@
 <div class="pagination_info"><%= page_entries_info @targets %></div>
 
 <% if @targets.size > 0 %>
-<table>
+<table class="targets">
   <tr>
     <th><%= sortable "name" %></th>
     <th>Target Species</th>
     <th><%= sortable "antibodies_count", "Antibodies" %></th>
-    <th>Validations</th>
     <th>Validated Species</th>
+    <th>Validations</th>
+    <th>Passed / Total</th>
   </tr>
 
 <% @targets.each do |target| %>
@@ -19,8 +20,9 @@
     <td><%= link_to target.name, target %></td>
     <td><%= link_to target.species.name, target.species %></td>
     <td class="number"><%= target.antibodies_count %></td>
-    <td class="number"><%= link_to(validation_by_type(target.validations), target)%></td>
     <td><%= validated_species(target.validations)%></td>
+    <td class="number"><%= link_to(validation_by_type(target.validations), target)%></td>
+    <td><%= link_to(validation_results(target.validations), target) %></td>
   </tr>
 <% end %>
 </table>

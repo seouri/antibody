@@ -498,3 +498,6 @@ table.antibodies, table.validations {
 .field_with_errors {
   border: 2px solid #f00;
 }
+table.targets {
+  width: 100%;
+}
