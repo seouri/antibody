@@ -19,6 +19,10 @@ body {
 #header a {
   color: #421;
 }
+#header a:hover {
+  color: #e82;
+  text-decoration: none;
+}
 #header h1.home {
   font-size: 690%;
   float: center;
