@@ -8,7 +8,9 @@
     <th>Host Species</th>
     <th>Clonality</th>
     <th>Purification</th>
-    <th>Source Website</th>
+<% if @antibody.url.present? %>
+    <th>Website</th>
+<% end %>
     <th>Validations</th>
   </tr>
   <tr>
@@ -18,7 +20,9 @@
     <td><%= @antibody.host_species.try(:name)%></td>
     <td><%= @antibody.clonality %></td>
     <td><%= @antibody.purification %></td>
-    <td><%= link_to("Open", @antibody.url, :target => "_blank") if @antibody.url.present? %></td>
+<% if @antibody.url.present? %>
+    <td><%= link_to("Website", @antibody.url, :target => "_blank") %></td>
+<% end %>
     <td><%= validation_by_type(@antibody.validations) %></td>
   </tr>
 </table>

@@ -1,6 +1,6 @@
 body {
   margin: 1em auto;
-  width: 860px;
+  width: 820px;
 }
 
 #main {
@@ -55,7 +55,7 @@ td a {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  width: 19.5em;
+  width: 18.5em;
 }
 #search input[type="submit"] {
   width: 3.8em;
@@ -80,7 +80,7 @@ td a {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  width: 20em;
+  width: 18em;
 }
 #searchhome input[type="submit"] {
   width: 3.8em;
@@ -172,6 +172,7 @@ th {
   color: #b50;
   background-color: #fec;
   border: 1px solid #ddd;
+  white-space: nowrap;
 }
 th a {
   text-decoration: none;
@@ -190,7 +191,7 @@ h1 {
 }
 h2 {
   font-size: 197%;
-  margin-top: 1.6em;
+  margin-top: 1em;
   margin-bottom: 0.25em;
   color: #421;
 }
@@ -204,7 +205,7 @@ h2 {
   line-height: 100%;
 }
 .mainlist.two_columns li {
-  width: 15.2em;
+  width: 14.4em;
   float: left;
 }
 .mainlist .target_counts {
@@ -241,7 +242,7 @@ h2 {
 #navigation li {
   list-style: none;
   display: inline-block;
-  padding: 0.4em 1em;
+  padding: 0.4em 0.9em;
   color: #421;
   font-weight: bold;
 }
@@ -292,7 +293,7 @@ h2 {
   padding: 0;
 }
 .dashboard li {
-  margin: 0 0.5em 0 0;
+  margin: 0 0.45em 0 0;
   padding: 1em 1em;
   list-style: none;
   display: inline-block;
@@ -422,7 +423,7 @@ ul.alphabetical {
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 1.7em;
+  width: 1.6em;
   display: inline-block;
 }
 .alphabetical a {
@@ -432,7 +433,7 @@ ul.alphabetical {
 .validation_c, .validation_d, .validation_w, .validation_blank {
   font-size: 80%;
   display: inline-block;
-  width: 2.5em;
+  width: 2.4em;
   padding: 0.25em 0;
   margin: 0 0.25em;
   text-align: center;
@@ -452,6 +453,9 @@ ul.alphabetical {
 .validation_blank {
   background-color: #fff;
   color: #fff;
+}
+.validation_categories {
+  white-space: nowrap;
 }
 .validation_categories a, .validation_categories a:visited {
   color: #000;
