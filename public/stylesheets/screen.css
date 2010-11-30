@@ -6,6 +6,9 @@ body {
 #main {
   min-height: 22em;
 }
+#header {
+  text-align: center;
+}
 #header h1 {
   font-size: 350%;
   display: inline-block;
@@ -15,6 +18,10 @@ body {
 }
 #header a {
   color: #421;
+}
+#header h1.home {
+  font-size: 690%;
+  float: center;
 }
 .left {
   padding-right: 1em;
