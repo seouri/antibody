@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.text     "journal"
+    t.integer  "publication_year"
+    t.text     "url"
     t.integer  "project_targets_count",    :default => 0
     t.integer  "project_antibodies_count", :default => 0
     t.datetime "created_at"
