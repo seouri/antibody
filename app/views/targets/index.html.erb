@@ -1,8 +1,8 @@
 <h1>Targets</h1>
 
-<%= alphabetical_query_list(@q) %>
+<%= alphabetical_query_list(@qs) %>
 
-<div class="pagination_info"><%= page_entries_info @targets %></div>
+<div class="pagination_info"><%= page_entries_info @targets %><%= " matching \"#{@q}\"" if @q.present? %></div>
 
 <% if @targets.size > 0 %>
 <table class="targets">

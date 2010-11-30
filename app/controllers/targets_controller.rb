@@ -3,9 +3,11 @@ class TargetsController < ApplicationController
   # GET /targets
   # GET /targets.xml
   def index
-    @q = params[:q]
-    total_entries = Target.count if @q.blank?
-    @targets = Target.order(order_string).includes(:species, :validations, :antibodies => :source).search(@q, :page => params[:page], :per_page => 20, :total_entries => total_entries)
+    @q = params[:q] || params[:qs]
+    @qs = params[:qs]
+    q_search = params[:q].present? ? "%#{params[:q]}" : params[:qs]
+    total_entries = Target.count if q_search.blank?
+    @targets = Target.order(order_string).includes(:species, :validations, :antibodies => :source).search(q_search, :page => params[:page], :per_page => 20, :total_entries => total_entries)
 
     respond_to do |format|
       if params[:id].present?

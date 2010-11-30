@@ -10,7 +10,7 @@ module ApplicationHelper
     li = link_to_unless query.blank?, "All"
     list = [content_tag(:li, li)]
     "A".upto("Z") do |l|
-      li = link_to_unless l == query, l, :q => l
+      li = link_to_unless l == query, l, :qs => l
       list.push(content_tag(:li, li)) 
     end
     content_tag :ul, list.join("\n").html_safe, :class => "alphabetical"
