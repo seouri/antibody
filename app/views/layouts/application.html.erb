@@ -11,8 +11,8 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<div id="header">
-<h1 class="<%= "home" if request.path == root_path %>"><%= link_to_unless_current("Antibody Validation Database", root_path) %></h1>
+<div id="header" class="<%= "home" if request.path == root_path %>">
+<h1><%= link_to_unless_current("Antibody Validation Database", root_path) %></h1>
 <% if request.path != root_path %>
 <div id="search">
   <form method="get" action="<%= targets_url %>" id="searchform">
