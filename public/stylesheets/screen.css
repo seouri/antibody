@@ -7,10 +7,14 @@ body {
   min-height: 22em;
 }
 #header h1 {
-  font-size: 185%;
+  font-size: 350%;
   display: inline-block;
-  margin: 1.1em 0 0 0;
-  vertical-align: top;
+  margin: 0.2em 0;
+  font-family: 'Yanone Kaffeesatz', serif;
+  font-weight: 700;
+}
+#header a {
+  color: #421;
 }
 .left {
   padding-right: 1em;

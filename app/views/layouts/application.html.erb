@@ -5,14 +5,14 @@
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.2.0/build/cssreset/reset-min.css&3.2.0/build/cssfonts/fonts-min.css&3.2.0/build/cssgrids/grids-min.css&3.2.0/build/cssbase/base-min.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+  <link  href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700&subset=latin" rel="stylesheet" type="text/css" >
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag "rails", "application", "autocomplete-rails" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 <div id="header">
-<%= link_to(image_tag("logo-70x65.png", :id => "logo"), root_path) %>
-<h1>Antibody Validation Database</h1>
+<h1><%= link_to_unless_current("Antibody Validation Database", root_path) %></h1>
 <% if request.path != root_path %>
 <div id="search">
   <form method="get" action="<%= targets_url %>" id="searchform">
