@@ -35,7 +35,7 @@ module TargetsHelper
   end
 
   def validated_species(validations)
-    validations.map {|v| v.species}.uniq.compact.sort_by(&:name).map {|s| link_to(s.name, s)}.join("\n").html_safe
+    validations.map {|v| v.species}.uniq.compact.sort_by(&:name).map {|s| link_to(s.name, s)}.join(", ").html_safe
   end
 
   def validation_results(validations)
