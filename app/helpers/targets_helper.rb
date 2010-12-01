@@ -17,7 +17,7 @@ module TargetsHelper
       td.push(content_tag(:td, target.antibodies_count, :class => "number"))
       td.push(content_tag(:td, validated_species(target.validations)))
       td.push(content_tag(:td, link_to(validation_by_type(target.validations), target)))
-      td.push(content_tag(:td, link_to(validation_results(target.validations), target)))
+      td.push(content_tag(:td, link_to(validation_results(target.validations), target) + validation_results_graph(target.validations)))
       tr.push(content_tag(:tr, td.join("\n").html_safe))
     end
     content_tag(:h2, "Targets (#{targets.size})") + content_tag(:table, tr.join("\n").html_safe, :class => "targets")
@@ -40,6 +40,16 @@ module TargetsHelper
 
   def validation_results(validations)
     v = validations.group_by(&:result)
-    "#{v["Passed"].nil? ? 0 : v["Passed"].size} / #{validations.size}"
+    passed = v["Passed"].nil? ? 0 : v["Passed"].size
+    failed = validations.size - passed
+    "#{passed} / #{validations.size}"
+  end
+
+  def validation_results_graph(validations)
+    v = validations.group_by(&:result)
+    passed = v["Passed"].nil? ? 0 : v["Passed"].size
+    failed = validations.size - passed
+    graph = "http://chart.apis.google.com/chart?chs=36x36&cht=p&chco=008000|EEEEEE&chf=bg,s,FFFFFF00&chp=4.71&chd=t:#{passed},#{failed}"
+    image_tag(graph, :class => "validation_results_graph").html_safe
   end
 end

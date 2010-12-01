@@ -46,7 +46,7 @@ a:hover {
   text-decoration: underline;
 }
 td a {
-  display: block;
+  xdisplay: block;
 }
 #search {
   display: block;
@@ -482,6 +482,11 @@ table.antibodies, table.validations {
 .Failed {
   color: #900;
 }
+.validation_results_graph {
+  margin: -11px 5px -12px -5px;
+  float: right;
+}
+
 .selected {
   background-color: #fec;
 }
