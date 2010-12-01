@@ -201,8 +201,8 @@ h1 {
 }
 h2 {
   font-size: 197%;
-  margin-top: 1em;
-  margin-bottom: 0.25em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
   color: #421;
 }
 
@@ -342,6 +342,7 @@ h2 {
   font-size: 123.1%;
   line-height: 165%;
   padding: 1em;
+  margin-bottom: 1em;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
