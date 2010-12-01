@@ -21,7 +21,7 @@
     <td><%= antibody.host_species.try(:name)%></td>
     <td><%= antibody.clonality %></td>
     <td><%= link_to(validation_by_type(antibody.validations), antibody) %></td>
-    <td><%= link_to(validation_results(antibody.validations), antibody) %></td>
+    <td><%= link_to(validation_results(antibody.validations), antibody)  + validation_results_graph(antibody.validations) %></td>
   </tr>
 <% end %>
 </table>

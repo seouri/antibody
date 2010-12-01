@@ -23,7 +23,7 @@
     <td><%= link_to("Website", @antibody.url, :target => "_blank") %></td>
 <% end %>
 <td><%= validation_by_type(@antibody.validations) %></td>
-<td><%= validation_results(@antibody.validations) %></td>
+<td><%= validation_results(@antibody.validations) %><%= validation_results_graph(@antibody.validations) %></td>
   </tr>
 </table>
 
