@@ -72,9 +72,9 @@
     <div class="field">
       <%= f.label :notes %>
       <%= f.text_field :notes, :class => "long" %>
-      <div class="examples">e.g. "Single histone band" or "Histone + other bands"</div>
-      <div class="examples">e.g. "Specific (90%); Cross-reacting peptides: H3K36me2 (<10%)"</div>
-      <div class="examples">e.g. "Marketed as ChIP grade"</div>
+      <div class="examples" id="validation_category_western_blot_example">e.g. "Single histone band" or "Histone + other bands"</div>
+      <div class="examples" id="validation_category_dot_blot_example">e.g. "Specific (90%); Cross-reacting peptides: H3K36me2 (<10%)"</div>
+      <div class="examples" id="validation_category_chip-chipseq_example">e.g. "Marketed as ChIP grade"</div>
     </div>
     <div class="field">
       <%= f.label :conditions %>

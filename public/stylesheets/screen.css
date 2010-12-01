@@ -580,5 +580,6 @@ ul.upload:after, .upload input.right:after {
 .examples {
   text-align: right;
   margin-bottom: 1em;
+  display: none;
 }
 /* upload forms end */
