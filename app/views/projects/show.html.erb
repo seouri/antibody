@@ -3,7 +3,7 @@
 
 <h2>Description</h2>
 <p>
-  <%= @project.description %>[Published in <%= link_to(@project.journal, @project.url, :target => "_blank")%>, <%= @project.publication_year %>]
+  <%= @project.description %> [Published in <%= link_to(@project.journal, @project.url, :target => "_blank")%>, <%= @project.publication_year %>]
 </p>
 
 <%= target_list(@project.targets)%>
