@@ -14,4 +14,5 @@ jQuery(document).ready(function() {
     $('#validation_category_dot_blot_example').hide('slow');
     $('#validation_category_chip-chipseq_example').show('slow');
   });
+  $('#validation_conditions_example').show();
 });
