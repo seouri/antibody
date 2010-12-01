@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   def upload
     @targets = Target.where(["targets.name like ?", "%#{params[:find_target]}%"]).includes(:species).order("targets.name") if params[:find_target].present?
     @target = Target.find(params[:target_id]) if params[:target_id].present?
+    @new_target = Target.new unless params[:target_id].present? or @targets.present?
     @antibody = @target.antibodies.find(params[:antibody_id]) if params[:antibody_id].present?
     @validation = @antibody.validations.new(:target_id => @target.id, :validator_id => 1) if @antibody.present?
   end
