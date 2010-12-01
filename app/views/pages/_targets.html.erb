@@ -1,5 +1,5 @@
 <% if @targets.present? %>
-<h3>Select Target:</h3>
+<h3>Select a target:</h3>
 <ul class="upload">
   <% for target in @targets %>
     <li><%= link_to target.name_with_species, upload_url(:target_id => target.id)%></li>
