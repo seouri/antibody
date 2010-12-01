@@ -504,7 +504,9 @@ table.antibodies, table.validations {
   margin-top: 0;
 }
 .field_with_errors {
-  border: 2px solid #f00;
+  padding: 0.5em 0;
+  background-color: #faa;
+  display: inline;
 }
 table.targets {
   width: 100%;
