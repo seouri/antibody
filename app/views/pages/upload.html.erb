@@ -18,6 +18,7 @@
 <% end %>
 <h2>Step 2. Find Antibody: <span class="selected"><%= @antibody.try(:source_with_catalogue_and_lot_number)%></span></h2>
 <% if @target.present? and @antibody.nil? %>
+<h3>Select an antibody:</h3>
 <table>
   <tr>
     <th>Source</th>
