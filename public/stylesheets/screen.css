@@ -24,7 +24,7 @@ body {
   text-decoration: none;
 }
 #header.home h1 {
-  font-size: 690%;
+  font-size: 585%;
 }
 .left {
   padding-right: 1em;
@@ -244,6 +244,7 @@ h2 {
   -moz-border-radius: 6px;
   border-radius: 6px;
   font-size: 131%;
+  text-align: left;
 }
 #navigation ul {  
   margin: 0;
