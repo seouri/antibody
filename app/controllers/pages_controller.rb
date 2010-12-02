@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @target = Target.find(params[:target_id]) if params[:target_id].present?
     @new_target = Target.new(:name => params[:find_target]) unless params[:target_id].present? or @targets.present?
     @antibody = @target.antibodies.find(params[:antibody_id]) if params[:antibody_id].present?
+    @new_antibody = @target.antibodies.new if @target.present?
     @validation = @antibody.validations.new(:target_id => @target.id, :validator_id => 1) if @antibody.present?
   end
 

@@ -1,0 +1,44 @@
+<h3>No antibodies for target "<%= @target.name_with_species %>" yet. Let's create a new one:</h3>
+
+<%= form_for(@new_antibody, :html => {:class => "upload"}) do |f| %>
+  <%= f.hidden_field :target_id %>
+  <% if @new_antibody.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_antibody.errors.count, "error") %> prohibited this antibody from being saved:</h2>
+
+      <ul>
+      <% @new_antibody.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :source %> <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :catalogue_number, "Catalogue #" %> <%= f.text_field :catalogue_number %>
+  </div>
+  <div class="field">
+    <%= f.label :lot_number, "Lot #" %> <%= f.text_field :lot_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :host_species_id, "Host Species" %> <%= f.select :host_species_id, options_from_collection_for_select(Species.order("targets_count desc, name"), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :antigen %> <%= f.text_area :antigen %>
+  </div>
+  <div class="field">
+    <%= f.label :clonality %> <%= f.radio_button :clonality, "monoclonal" %> <%= f.label :clonality_monoclonal, "Monoclonal", :class => "radio" %> <%= f.radio_button :clonality, "polyclonal" %> <%= f.label :clonality_polyclonal, "Polyclonal", :class => "radio" %>
+  </div>
+  <div class="field">
+    <%= f.label :purification %> <%= f.select :purification, ["Affinity", "Crude", "Partial", "Protein A", "Protein G", "Serum", "Tissue Culture Supernatant"].sort %>
+  </div>
+  <div class="field">
+    <%= f.label :url %> <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit("save", :class => "right") %>
+  </div>
+<% end %>

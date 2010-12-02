@@ -5,6 +5,7 @@ class Antibody < ActiveRecord::Base
   belongs_to :source, :counter_cache => true
   belongs_to :host_species, :class_name => 'Species'
   has_many :validations, :order => "category desc"
+  validates_presence_of :target_id, :source_id, :host_species_id
   #validates_uniqueness_of :lot_number, :scope => [:source_id, :catalogue_number]
 
   def source_with_catalogue_and_lot_number

@@ -19,25 +19,9 @@
 <h2>Step 2. Find Antibody: <span class="selected"><%= @antibody.try(:source_with_catalogue_and_lot_number)%></span></h2>
 <% if @target.present? and @antibody.nil? %>
   <% if @target.antibodies.size > 0 %>
-<h3>Select an antibody:</h3>
-<table>
-  <tr>
-    <th>Source</th>
-    <th>Catalogue #</th>
-    <th>Lot #</th>
-    <th>Select</th>
-  </tr>
-  <% for item in @target.antibodies %>
-  <tr>
-    <td><%= item.source.name %></td>
-    <td><%= item.catalogue_number %></td>
-    <td><%= item.lot_number %></td>
-    <td><%= link_to("Select", upload_url(:target_id => @target, :antibody_id => item))%></td>
-  </tr>
-  <% end %>
-</table>
+    <%= render 'antibodies' %>
   <% else %>
-<h3>No antibodies for <%= @target.name_with_species %>. Let's create a new one:</h3>
+    <%= render 'new_antibody' %>
   <% end %>
 <% end %>
 <%= link_to("Find another antibody", upload_url(:target_id => @target)) if @antibody.present? %>

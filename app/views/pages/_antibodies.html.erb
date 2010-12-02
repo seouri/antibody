@@ -1,0 +1,17 @@
+<h3>Select an antibody:</h3>
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Catalogue #</th>
+    <th>Lot #</th>
+    <th>Select</th>
+  </tr>
+  <% for item in @target.antibodies %>
+  <tr>
+    <td><%= item.source.name %></td>
+    <td><%= item.catalogue_number %></td>
+    <td><%= item.lot_number %></td>
+    <td><%= link_to("Select", upload_url(:target_id => @target, :antibody_id => item))%></td>
+  </tr>
+  <% end %>
+</table>
