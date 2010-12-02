@@ -4,6 +4,7 @@
 <% if @target.present? %>
   <%= link_to("Find another target", upload_url) %>
 <% else %>
+  <h3>Find the target of your antibody:</h3>
   <%= form_tag upload_url, :method => 'get', :class => "upload" do %>
     <%= text_field_tag :find_target, params[:find_target] %>
     <%= submit_tag "Search", :name => nil%>
@@ -16,14 +17,15 @@
     <% end %>
   </div>
 <% end %>
+
 <h2>Step 2. Find Antibody: <span class="selected"><%= @antibody.try(:source_with_catalogue_and_lot_number)%></span></h2>
 <% if @target.present? and @antibody.nil? %>
-  <% if @target.antibodies.size > 0 %>
+  <% if @target.antibodies.size > 0 and params[:new_antibody].nil? %>
     <%= render 'antibodies' %>
-  <% else %>
-    <%= render 'new_antibody' %>
   <% end %>
+  <%= render 'new_antibody' if params[:new_antibody].present? %>
 <% end %>
+
 <%= link_to("Find another antibody", upload_url(:target_id => @target)) if @antibody.present? %>
 
 

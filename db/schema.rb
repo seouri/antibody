@@ -14,17 +14,15 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
 
   create_table "antibodies", :force => true do |t|
     t.string   "name"
-    t.text     "description"
     t.integer  "target_id"
     t.integer  "host_species_id"
-    t.text     "antigen"
-    t.string   "clonality"
-    t.string   "purification"
     t.integer  "source_id"
     t.string   "catalogue_number"
     t.string   "lot_number"
+    t.text     "antigen"
+    t.string   "clonality"
+    t.string   "purification"
     t.string   "url"
-    t.string   "created_by"
     t.integer  "project_targets_count",    :default => 0
     t.integer  "project_antibodies_count", :default => 0
     t.integer  "validations_count",        :default => 0
@@ -32,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
     t.datetime "updated_at"
   end
 
+  add_index "antibodies", ["source_id", "catalogue_number", "lot_number"], :name => "index_antibodies_on_source_catalogue_lot", :unique => true
   add_index "antibodies", ["target_id"], :name => "index_antibodies_on_target_id"
 
   create_table "images", :force => true do |t|
@@ -160,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "reviewed",           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,8 @@
+<% if @sources.present? %>
+<h3>Select a source:</h3>
+<ul class="upload">
+  <% for source in @sources %>
+    <li><%= link_to source.name, upload_url(:source_id => source.id, :target_id => @target.id, :new_antibody => params[:new_antibody])%></li>
+  <% end %>
+</ul>
+<% end %>
