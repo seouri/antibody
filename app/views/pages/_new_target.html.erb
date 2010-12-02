@@ -1,6 +1,6 @@
-<h3>No targets found. Let's create a new one:</h3>
+<h3>No targets found for "<%= params[:find_target]%>". Let's create a new one:</h3>
 
-<%= form_for(@new_target) do |f| %>
+<%= form_for(@new_target, :url => create_target_url, :html => {:class => "upload"} ) do |f| %>
   <% if @new_target.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@new_target.errors.count, "error") %> prohibited this target from being saved:</h2>
@@ -12,17 +12,17 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :species_id, "Target Species" %>
+    <%= f.select :species_id, options_from_collection_for_select(Species.order("targets_count desc, name"), :id, :name) %>
+  </div>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :species_id %><br />
-    <%= f.text_field :species_id %>
+    <%= f.label :name, "Target Name" %>
+    <%= f.text_field :name, :class => "long" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit("save", :class => "right") %>
   </div>
 <% end %>

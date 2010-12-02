@@ -513,6 +513,12 @@ table.targets {
   width: 100%;
 }
 /* upload forms start */
+form.upload {
+  margin: 2em 0;
+}
+.upload select {
+  font-size: 150%;
+}
 .upload input {
   margin: 0;
   padding: 0.25em;

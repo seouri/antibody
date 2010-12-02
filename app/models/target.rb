@@ -8,6 +8,8 @@ class Target < ActiveRecord::Base
   has_many :projects, :through => :project_targets
   has_many :source_targets
   has_many :sources, :through => :source_targets
+  validates_uniqueness_of :name, :scope => :species_id
+  validates_presence_of :name, :species_id
 
   def self.search(query, options = {})
     options[:conditions] = ["LOWER(#{Target.table_name}.name) LIKE ?", "#{query.downcase}%"] unless query.blank?

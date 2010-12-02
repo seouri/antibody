@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
   end
 
   add_index "targets", ["name"], :name => "index_targets_on_name"
+  add_index "targets", ["species_id", "name"], :name => "index_targets_on_species_id_and_name", :unique => true
   add_index "targets", ["species_id"], :name => "index_targets_on_species_id"
 
   create_table "users", :force => true do |t|

@@ -8,9 +8,21 @@ class PagesController < ApplicationController
   def upload
     @targets = Target.where(["targets.name like ?", "%#{params[:find_target]}%"]).includes(:species).order("targets.name") if params[:find_target].present?
     @target = Target.find(params[:target_id]) if params[:target_id].present?
-    @new_target = Target.new unless params[:target_id].present? or @targets.present?
+    @new_target = Target.new(:name => params[:find_target]) unless params[:target_id].present? or @targets.present?
     @antibody = @target.antibodies.find(params[:antibody_id]) if params[:antibody_id].present?
     @validation = @antibody.validations.new(:target_id => @target.id, :validator_id => 1) if @antibody.present?
+  end
+
+  def create_target
+    @target = Target.new(params[:target])
+
+    respond_to do |format|
+      if @target.save
+        format.html { redirect_to(upload_url(:target_id => @target.id), :notice => 'Target was successfully created.') }
+      else
+        format.html { redirect_to(upload_url(:find_target => @target.name), :notice => "Target was not saved. Please try again.")}
+      end
+    end
   end
 
   def create_validation

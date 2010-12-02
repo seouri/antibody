@@ -11,6 +11,7 @@ class CreateTargets < ActiveRecord::Migration
     end
     add_index :targets, :species_id
     add_index :targets, :name
+    add_index :targets, [:species_id, :name], :unique => true
   end
 
   def self.down
