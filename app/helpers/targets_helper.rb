@@ -13,7 +13,7 @@ module TargetsHelper
     targets.each do |target|
       td = []
       td.push(content_tag(:td, link_to(target.name, target)))
-      td.push(content_tag(:td, link_to(target.species.name, target.species)))
+      td.push(content_tag(:td, target.species.name))
       td.push(content_tag(:td, target.antibodies_count, :class => "number"))
       td.push(content_tag(:td, validated_species(target.validations)))
       td.push(content_tag(:td, link_to(validation_by_type(target.validations), target)))
@@ -35,7 +35,7 @@ module TargetsHelper
   end
 
   def validated_species(validations)
-    validations.map {|v| v.species}.uniq.compact.sort_by(&:name).map {|s| link_to(s.name, s)}.join(", ").html_safe
+    validations.map {|v| v.species}.uniq.compact.sort_by(&:name).map {|s| s.name}.join(", ").html_safe
   end
 
   def validation_results(validations)

@@ -42,7 +42,7 @@
   <% @antibody.validations.each do |validation| %>
   <tr>
     <td class="category_<%= validation.category.first.downcase %>"><%= validation.category %></td>
-    <td><%= link_to_unless validation.species.nil?, validation.species.try(:name), validation.species %></td>
+    <td><%= link_to_unless true, validation.species.try(:name), validation.species %></td>
     <td class="<%= validation.result%>"><%= validation.result %></td>
     <td><%= validation.notes %></td>
     <td><%= validation.conditions %></td>
