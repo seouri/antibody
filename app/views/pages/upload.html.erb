@@ -76,6 +76,10 @@
       <%= f.label :image %>
       <%= f.file_field :image, :accept => 'image/png,image/gif,image/jpeg' %>
     </div>
+    <div class="field">
+      <%= f.label :validator_name %>
+      <%= f.text_field :validator_name, :class => "long" %>
+    </div>
     <div class="actions">
       <%= f.submit("save", :class => "right") %>
     </div>
