@@ -46,6 +46,29 @@ a:hover {
   text-decoration: underline;
 }
 
+.helpmark {
+  font-size: 80%;
+  color: #fec;
+  background-color: #b50;
+  padding: 0.1em 0.35em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.helptext {
+  display: none;
+  padding: 1em;
+  position: absolute;
+  background-color: #fec;
+  opacity: 0.9;
+  width: 15em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-weight: normal;
+  text-align: left;
+  font-size: 80%;
+}
 .example {
   color: #eda;
 }
