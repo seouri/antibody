@@ -8,8 +8,9 @@
     <th>Source</th>
     <th>Catalogue #</th>
     <th>Lot #</th>
-    <th>Host Species</th>
+    <th class="wrap">Host Species</th>
     <th>Clonality</th>
+    <th class="wrap">Validated Species</th>
     <th>Validations</th>
     <th>Passed / Total</th>
   </tr>
@@ -20,6 +21,7 @@
     <td><%= antibody.lot_number %></td>
     <td><%= antibody.host_species.try(:name)%></td>
     <td><%= antibody.clonality %></td>
+    <td><%= validated_species(antibody.validations)%></td>
     <td><%= link_to(validation_by_type(antibody.validations), antibody) %></td>
     <td><%= link_to(validation_results(antibody.validations), antibody)  + validation_results_graph(antibody.validations) %></td>
   </tr>
