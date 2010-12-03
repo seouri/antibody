@@ -7,7 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
   <link  href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700&subset=latin" rel="stylesheet" type="text/css" >
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "rails", "application", "autocomplete-rails" %>
+  <%= javascript_include_tag "rails", "application", "autocomplete-rails", "jquery.example.min" %>
   <%= csrf_meta_tag %>
 <% if Rails.env == "production" %>
   <script type="text/javascript">
@@ -32,7 +32,7 @@
 <div id="search">
   <form method="get" action="<%= targets_url %>" id="searchform">
     <input type="hidden" name="id" id="autocompleted_id">
-    <input type="text" name="q" data-autocomplete="<%= autocomplete_target_name_targets_url %>" id_element="#autocompleted_id">
+    <input type="text" name="q" data-autocomplete="<%= autocomplete_target_name_targets_url %>" id_element="#autocompleted_id" value="<%= @q %>" id="target_search_query">
     <input type="submit" value="search" id="searchsubmit">
   </form>
 </div>

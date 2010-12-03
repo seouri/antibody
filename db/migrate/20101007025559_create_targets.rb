@@ -12,6 +12,7 @@ class CreateTargets < ActiveRecord::Migration
     add_index :targets, :species_id
     add_index :targets, :name
     add_index :targets, [:species_id, :name], :unique => true
+    add_index :targets, :validations_count
   end
 
   def self.down

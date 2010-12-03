@@ -45,8 +45,9 @@ a:hover {
   color: #e82;
   text-decoration: underline;
 }
-td a {
-  xdisplay: block;
+
+.example {
+  color: #eda;
 }
 #search {
   display: block;
@@ -76,7 +77,7 @@ td a {
 #searchhome {
   float: none;
   text-align: center;
-  margin: 12em 0;
+  margin: 10em 0;
   font-size: 108%;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -96,6 +97,9 @@ td a {
   width: 3.8em;
   background-color: #e82;
   color: #fff;
+}
+#searchhome form {
+  margin: 0.5em 0;
 }
 /* autocomplete start */
 .ui-autocomplete {
@@ -518,7 +522,7 @@ table.targets {
 }
 /* upload forms start */
 form.upload {
-  margin: 2em 0;
+  margin: 1em 0 0.5em 0;
 }
 .upload select {
   font-size: 150%;

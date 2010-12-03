@@ -11,6 +11,8 @@ class Target < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :species_id
   validates_presence_of :name, :species_id
 
+  scope :most_validated, order("validations_count desc")
+
   def self.search(query, options = {})
     options[:conditions] = ["LOWER(#{Target.table_name}.name) LIKE ?", "#{query.downcase}%"] unless query.blank?
     options[:page]      ||= 1

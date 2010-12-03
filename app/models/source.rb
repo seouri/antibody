@@ -4,4 +4,6 @@ class Source < ActiveRecord::Base
   has_many :antibodies, :include => [:target => :species], :order => "name"
   has_many :source_targets
   has_many :targets, :through => :source_targets, :include => [:species, :antibodies, {:validations => :species}]
+
+  scope :most_antibodies, order("antibodies_count desc")
 end

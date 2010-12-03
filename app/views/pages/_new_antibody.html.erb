@@ -5,9 +5,10 @@
     <%= form_tag upload_url, :method => 'get', :class => "upload" do %>
       <%= hidden_field_tag :target_id, @target.id %>
       <%= hidden_field_tag :new_antibody, 1 if params[:new_antibody] %>
-      <%= text_field_tag :find_source, params[:find_source] %>
-      <%= submit_tag "Search", :name => nil%>
+      <%= text_field_tag :find_source, params[:find_source], :id => "upload_source_search" %>
+      <%= submit_tag "search", :name => nil%>
     <% end %>
+    Examples: <%= Source.most_antibodies.limit(5).map {|s| link_to(s.name, upload_url(:find_source => s.name, :target_id => @target.id, :new_antibody => 1))}.join(", ").html_safe %>
     <% if @sources.present? %>
       <%= render 'sources' %>
     <% elsif params[:find_source].present? %>

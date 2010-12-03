@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
   add_index "targets", ["name"], :name => "index_targets_on_name"
   add_index "targets", ["species_id", "name"], :name => "index_targets_on_species_id_and_name", :unique => true
   add_index "targets", ["species_id"], :name => "index_targets_on_species_id"
+  add_index "targets", ["validations_count"], :name => "index_targets_on_validations_count"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

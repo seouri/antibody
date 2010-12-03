@@ -1,4 +1,4 @@
-<h1>Upload New Antibody Validation</h1>
+<h1>Upload New Validation Data</h1>
 
 <h2>Step 1. Find Target: <span class="selected"><%= @target.try(:name_with_species) %></span></h2>
 <% if @target.present? %>
@@ -6,9 +6,10 @@
 <% else %>
   <h3>Find the target of your antibody:</h3>
   <%= form_tag upload_url, :method => 'get', :class => "upload" do %>
-    <%= text_field_tag :find_target, params[:find_target] %>
+    <%= text_field_tag :find_target, params[:find_target], :id => "upload_target_search" %>
     <%= submit_tag "Search", :name => nil%>
   <% end %>
+  Examples: <%= Target.most_validated.limit(5).map {|t| link_to(t.name, upload_url(:find_target => t.name))}.join(", ").html_safe %>
   <div id="targets">
     <% if @targets.present? %>
       <%= render 'targets' %>
