@@ -8,7 +8,11 @@
       <%= text_field_tag :find_source, params[:find_source] %>
       <%= submit_tag "Search", :name => nil%>
     <% end %>
-    <%= render 'sources' %>
+    <% if @sources.present? %>
+      <%= render 'sources' %>
+    <% elsif params[:find_source].present? %>
+      <%= render 'new_source'%>
+    <% end %>
   
 <% else %>
   <h3>Create a new antibody:</h3>
@@ -47,7 +51,8 @@
       <%= f.label :purification %> <%= f.select :purification, ["Affinity", "Crude", "Partial", "Protein A", "Protein G", "Serum", "Tissue Culture Supernatant"].sort %>
     </div>
     <div class="field">
-      <%= f.label :url %> <%= f.text_field :url, :class => "long" %>
+      <%= f.label :url, "Product Website" %> <%= f.text_field :url, :class => "long" %>
+      <div class="examples" style="display: block">e.g. http://www.abcam.com/Histone-H3-tri-methyl-K9-antibody-ChIP-Grade-ab8898.html </div>
     </div>
     <div class="actions">
       <%= f.submit("save", :class => "right") %>

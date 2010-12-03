@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @new_target = Target.new(:name => params[:find_target]) unless params[:target_id].present? or @targets.present?
     @sources = Source.where(["name like ?", "%#{params[:find_source]}%"]) if params[:find_source]
     @source = Source.find(params[:source_id]) if params[:source_id].present?
+    @new_source = Source.new(:name => params[:find_source]) unless params[:source_id].present?
     @antibody = @target.antibodies.find(params[:antibody_id]) if params[:antibody_id].present?
     @new_antibody = @target.antibodies.new(:source_id => @source.id) if @target.present? and @source.present?
     @validation = @antibody.validations.new(:target_id => @target.id, :validator_id => 1) if @antibody.present?
@@ -24,6 +25,18 @@ class PagesController < ApplicationController
         format.html { redirect_to(upload_url(:target_id => @target.id), :notice => 'Target was successfully created.') }
       else
         format.html { redirect_to(upload_url(:find_target => @target.name), :notice => "Target was not saved. Please try again.")}
+      end
+    end
+  end
+
+  def create_source
+    @source = Source.new(params[:source])
+
+    respond_to do |format|
+      if @source.save
+        format.html { redirect_to(upload_url(:find_source => @source.name, :new_antibody => 1, :target_id => params[:target_id]), :notice => 'Source was successfully created.') }
+      else
+        format.html { redirect_to(upload_url(:find_source => @source.name), :notice => "Source was not saved. Please try again.")}
       end
     end
   end

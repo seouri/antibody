@@ -17,6 +17,7 @@ Antibodyapp::Application.routes.draw do
   match 'upload' => "pages#upload"
   match 'create_validation' => "pages#create_validation"
   match 'create_target' => "pages#create_target"
+  match 'create_source' => "pages#create_source"
   match 'create_antibody' => "pages#create_antibody"
   match 'validation_image/:id' => 'antibodies#validation_image'
 

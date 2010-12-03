@@ -1,0 +1,23 @@
+<h3>No sources found for "<%= params[:find_source]%>". Let's create a new one:</h3>
+
+<%= form_for(@new_source, :url => create_source_url(:target_id => @target.id), :html => {:class => "upload"} ) do |f| %>
+  <% if @new_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_source.errors.count, "error") %> prohibited this source from being saved:</h2>
+
+      <ul>
+      <% @new_source.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name, "Source Name" %>
+    <%= f.text_field :name, :class => "long" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit("save", :class => "right") %>
+  </div>
+<% end %>
