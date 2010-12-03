@@ -196,7 +196,7 @@ td {
   text-align: center;
 }
 h1 {
-  font-size: 300%;
+  font-size: 250%;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   line-height: 125%;
@@ -211,14 +211,14 @@ h2 {
 
 .mainlist {
   margin-top: 0;
-  font-size: 197%;
+  font-size: 182%;
 }
 .mainlist li {
   margin-bottom: 0.6em;
   line-height: 100%;
 }
 .mainlist.two_columns li {
-  width: 14.4em;
+  width: 15.5em;
   float: left;
 }
 .mainlist .target_counts {
