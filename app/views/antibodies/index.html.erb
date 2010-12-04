@@ -6,24 +6,29 @@
 
 <table>
   <tr>
-    <th><%= sortable "name", "Antibody Name" %></th>
+    <th>Source</th>
+    <th>Catalogue #</th>
+    <th>Lot #</th>
     <th>Target Name</th>
-    <th>Target Species</th>
-    <th>Validations</th>
+    <th class="wrap">Target Species</th>
+    <th class="wrap">Validated Species</th>
+    <th>Validations<%= validations_help.html_safe %></th>
+    <th>Passed / Total</th>
   </tr>
 
 <% @antibodies.each do |antibody| %>
   <tr>
-    <td><%= link_to antibody.name, antibody %></td>
-    <td><%= link_to antibody.target.name, antibody %></td>
+    <td><%= link_to antibody.source.name, antibody.source %></td>
+    <td><%= link_to antibody.catalogue_number, antibody %></td>
+    <td><%= link_to antibody.lot_number, antibody %></td>
+    <td><%= link_to antibody.target.name, antibody.target %></td>
     <td><%= antibody.target.species.try(:name) %></td>
-    <td></td>
+    <td><%= validated_species(antibody.validations)%></td>
+    <td><%= link_to(validation_by_type(antibody.validations), antibody) %></td>
+    <td><%= link_to(validation_results(antibody.validations), antibody) %><%= validation_results_graph(antibody.validations) %></td>
+    
   </tr>
 <% end %>
 </table>
 
 <% end %>
-
-<br />
-
-<%= link_to 'New Antibody', new_antibody_path %>

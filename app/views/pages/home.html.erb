@@ -3,8 +3,8 @@
     <input type="hidden" name="id" id="autocompleted_id">
     <input type="text" name="q" data-autocomplete="<%= autocomplete_target_name_targets_url %>" id_element="#autocompleted_id" id="target_search_query">
     <input type="submit" value="search" id="searchsubmit">
+    <p>Search examples: <%= Target.most_validated.limit(3).map {|t| link_to(t.name, targets_url(:q => t.name))}.join(", ").html_safe %></p>
   </form>
-  Search examples: <%= Target.most_validated.limit(3).map {|t| link_to(t.name, targets_url(:q => t.name))}.join(", ").html_safe %>
 </div>
 
 <div class="yui3-g">
