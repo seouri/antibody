@@ -4,7 +4,7 @@
     <input type="text" name="q" data-autocomplete="<%= autocomplete_target_name_targets_url %>" id_element="#autocompleted_id" id="target_search_query">
     <input type="submit" value="search" id="searchsubmit">
   </form>
-  Search examples: <%= Target.most_validated.limit(7).map {|t| link_to(t.name, targets_url(:q => t.name))}.join(", ").html_safe %>
+  Search examples: <%= Target.most_validated.limit(3).map {|t| link_to(t.name, targets_url(:q => t.name))}.join(", ").html_safe %>
 </div>
 
 <div class="yui3-g">
@@ -17,7 +17,7 @@
             <span class="item">targets</span>
           </li>
           <li>
-            <span class="value"><%= link_to number_with_delimiter(Antibody.count), targets_path %></span>
+            <span class="value"><%= link_to number_with_delimiter(Antibody.count), antibodies_path %></span>
             <span class="item">antibodies</span>
           </li>
           <li>
