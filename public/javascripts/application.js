@@ -3,7 +3,8 @@ jQuery(document).ready(function() {
   $('input#upload_target_search').example('enter the target name');
   $('input#upload_source_search').example('enter the source name');
   $('.helpmark').hover(function() {
-    $('.helptext').toggle();
+    //$('.helptext').toggle();
+    $(this).next().toggle();
   });
   $("#validation_category_western_blot").click(function() {
     $('#validation_category_western_blot_example').show('slow');

@@ -8,7 +8,7 @@ module TargetsHelper
     th.push(content_tag(:th, "Antibodies"))
     th.push(content_tag(:th, "Validated Species"))
     th.push(content_tag(:th, ("Validations" + validations_help).html_safe))
-    th.push(content_tag(:th, "Passed / Total"))
+    th.push(content_tag(:th, ("Passed / Total" + validation_criteria_help).html_safe))
     tr.push(content_tag(:tr, th.join("\n").html_safe))
     targets.each do |target|
       td = []
@@ -60,5 +60,9 @@ module TargetsHelper
 
   def validations_help
     help('<div class="validation_categories"><span class="validation_w">W</span>: Western blot validations<br /><span class="validation_d">D</span>: Dot blot validations<br /><span class="validation_c">C</span>: ChIP-chip/seq validataions</div>')
+  end
+
+  def validation_criteria_help
+    help('<ul><li><strong>Western blot</strong>: Pass if the histone band constituted at least 50% of the total nuclear signal, was at least ten-fold more intense than any other single nuclear band, and was at least ten-fold more intense than recombinant, unmodified histone.</li><li><strong>Dot blot</strong>: Pass if at least 75% of the total signal was specific to the cognate peptide.</li><li><strong>ChIP-chip/seq</strong>:  Pass if the Pearson correlation is more than 0.8 on any pair of ChIPs performed from independent preparations matched for stage, cell type or biological tissue</li></ul>')
   end
 end

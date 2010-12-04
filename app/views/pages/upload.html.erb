@@ -59,7 +59,7 @@
     </div>
     <div class="field">
       <%= f.label :result %> <%= f.radio_button :passed, 1 %> <%= f.label :passed_1, "Passed", :class => "radio"%>
-      <%= f.radio_button :passed, 0 %> <%= f.label :passed_0, "Failed", :class => "radio"%>
+      <%= f.radio_button :passed, 0 %> <%= f.label :passed_0, "Failed", :class => "radio"%><%= validation_criteria_help.html_safe %>
     </div>
     <div class="field">
       <%= f.label :notes %>

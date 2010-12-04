@@ -49,7 +49,9 @@ a:hover {
   color: #e82;
   text-decoration: underline;
 }
-
+.help {
+  position: relative;
+}
 .helpmark {
   font-size: 80%;
   color: #fec;
@@ -64,10 +66,11 @@ a:hover {
   display: none;
   padding: 0.5em;
   position: absolute;
+  right: 0;
   background-color: #fff;
   border: 1px solid #fec;
   opacity: 0.9;
-  width: 16em;
+  width: 18em;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -77,6 +80,12 @@ a:hover {
   -webkit-box-shadow: #333 2px 2px 4px ;
   -moz-box-shadow: #333 2px 2px 4px ;
   box-shadow: #333 2px 2px 4px;
+  white-space: normal;
+  color: #000;
+}
+.helptext ul {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .example {
   color: #eda;
@@ -639,5 +648,17 @@ ul.upload:after, .upload input.right:after {
 }
 .upload span {
   font-size: 150%;
+}
+.upload .helptext {
+  font-size: 65%;
+  width: 30em;
+}
+.upload .helptext ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.upload .helpmark {
+  font-size: 80%;
+  float: none;
 }
 /* upload forms end */

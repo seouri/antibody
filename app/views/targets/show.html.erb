@@ -8,18 +8,16 @@
     <th>Source</th>
     <th>Catalogue #</th>
     <th>Lot #</th>
-    <th class="wrap">Host Species</th>
     <th>Clonality</th>
     <th class="wrap">Validated Species</th>
     <th>Validations<%= validations_help.html_safe %></th>
-    <th>Passed / Total</th>
+    <th>Passed / Total<%= validation_criteria_help.html_safe %></th>
   </tr>
 <% @target.antibodies.sort_by(&:source_id).each do |antibody| %>
   <tr>
     <td><%= link_to antibody.source.name, antibody.source %></td>
     <td><%= antibody.catalogue_number %></td>
     <td><%= antibody.lot_number %></td>
-    <td><%= antibody.host_species.try(:name)%></td>
     <td><%= antibody.clonality %></td>
     <td><%= validated_species(antibody.validations)%></td>
     <td><%= link_to(validation_by_type(antibody.validations), antibody) %></td>
