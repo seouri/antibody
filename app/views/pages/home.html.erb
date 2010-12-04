@@ -17,6 +17,10 @@
             <span class="item">targets</span>
           </li>
           <li>
+            <span class="value"><%= link_to number_with_delimiter(Antibody.count), targets_path %></span>
+            <span class="item">antibodies</span>
+          </li>
+          <li>
             <span class="value"><%= link_to number_with_delimiter(Species.where("targets_count > 0").count), species_index_path %></span>
             <span class="item">species</span>
           </li>
