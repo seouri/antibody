@@ -59,6 +59,6 @@ module TargetsHelper
   end
 
   def validations_help
-    help('<div class="validation_categories"><span class="validation_w">W3</span>: 3 western blot validations<br /><span class="validation_d">D2</span>: 2 dot blot validations<br /><span class="validation_c">C2</span>: 2 ChIP-chip/seq validataions</div>')
+    help('<div class="validation_categories"><span class="validation_w">W</span>: Western blot validations<br /><span class="validation_d">D</span>: Dot blot validations<br /><span class="validation_c">C</span>: ChIP-chip/seq validataions</div>')
   end
 end
