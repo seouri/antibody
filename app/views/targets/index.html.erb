@@ -11,7 +11,7 @@
     <th>Target Species</th>
     <th><%= sortable "antibodies_count", "Antibodies" %></th>
     <th>Validated Species</th>
-    <th>Validations <class class="help"><span class="helpmark">?</span><div class="helptext"><div class="validation_categories"><span class="validation_w" title="Western blot">W3</span>: 3 western blot validations<br /><span class="validation_d" title="Dot blot">D2</span>: 2 dot blot validations<br /><span class="validation_c" title="ChIP-chip/seq">C2</span>: 2 ChIP-chip/seq validataions</div></div></th>
+    <th>Validations<%= validations_help.html_safe %></th>
     <th>Passed / Total</th>
   </tr>
 

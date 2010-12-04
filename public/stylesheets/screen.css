@@ -54,20 +54,25 @@ a:hover {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  margin-left: 0.25em;
 }
 .helptext {
   display: none;
-  padding: 1em;
+  padding: 0.5em;
   position: absolute;
-  background-color: #fec;
+  background-color: #fff;
+  border: 1px solid #fec;
   opacity: 0.9;
-  width: 15em;
+  width: 16em;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
   font-weight: normal;
   text-align: left;
   font-size: 80%;
+  -webkit-box-shadow: #333 2px 2px 4px ;
+  -moz-box-shadow: #333 2px 2px 4px ;
+  box-shadow: #333 2px 2px 4px;
 }
 .example {
   color: #eda;

@@ -11,7 +11,7 @@
     <th class="wrap">Host Species</th>
     <th>Clonality</th>
     <th class="wrap">Validated Species</th>
-    <th>Validations</th>
+    <th>Validations<%= validations_help.html_safe %></th>
     <th>Passed / Total</th>
   </tr>
 <% @target.antibodies.sort_by(&:source_id).each do |antibody| %>

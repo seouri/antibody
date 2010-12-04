@@ -23,4 +23,8 @@ module ApplicationHelper
   def page_title(title)
       content_for(:title) {title}
   end
+
+  def help(helptext)
+    '<span class="help"><span class="helpmark">?</span><div class="helptext">' + helptext + '</div></span>'
+  end
 end

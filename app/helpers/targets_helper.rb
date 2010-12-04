@@ -7,7 +7,7 @@ module TargetsHelper
     th.push(content_tag(:th, "Target Species"))
     th.push(content_tag(:th, "Antibodies"))
     th.push(content_tag(:th, "Validated Species"))
-    th.push(content_tag(:th, "Validations"))
+    th.push(content_tag(:th, ("Validations" + validations_help).html_safe))
     th.push(content_tag(:th, "Passed / Total"))
     tr.push(content_tag(:tr, th.join("\t").html_safe))
     targets.each do |target|
@@ -51,5 +51,9 @@ module TargetsHelper
     failed = validations.size - passed
     graph = "http://chart.apis.google.com/chart?chs=36x36&cht=p&chco=008000|EEEEEE&chf=bg,s,FFFFFF00&chp=4.71&chd=t:#{passed},#{failed}"
     image_tag(graph, :class => "validation_results_graph").html_safe
+  end
+
+  def validations_help
+    help('<div class="validation_categories"><span class="validation_w">W3</span>: 3 western blot validations<br /><span class="validation_d">D2</span>: 2 dot blot validations<br /><span class="validation_c">C2</span>: 2 ChIP-chip/seq validataions</div>')
   end
 end

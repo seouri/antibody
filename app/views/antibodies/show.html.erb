@@ -10,7 +10,7 @@
 <% if @antibody.url.present? %>
     <th>Website</th>
 <% end %>
-    <th>Validations</th>
+    <th>Validations<%= validations_help.html_safe %></th>
     <th>Passed / Total</th>
   </tr>
   <tr>
