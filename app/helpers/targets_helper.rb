@@ -1,5 +1,5 @@
 module TargetsHelper
-  def target_list(targets)
+  def target_list(targets, noheading = nil)
     return "" if targets.size == 0
     tr = []
     th = []
@@ -20,7 +20,12 @@ module TargetsHelper
       td.push(content_tag(:td, link_to(validation_results(target.validations), target) + validation_results_graph(target.validations)))
       tr.push(content_tag(:tr, td.join("\n").html_safe))
     end
-    content_tag(:h2, "Targets (#{targets.size})") + content_tag(:table, tr.join("\n").html_safe, :class => "targets")
+    table = content_tag(:table, tr.join("\n").html_safe, :class => "targets")
+    if noheading.nil?
+      return content_tag(:h2, "Targets (#{targets.size})") + table
+    else
+      return table
+    end
   end
 
   def validation_by_type(validations)

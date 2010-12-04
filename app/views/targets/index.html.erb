@@ -5,27 +5,7 @@
 <div class="pagination_info"><%= page_entries_info @targets %><%= " matching \"#{@q}\"" if @q.present? %></div>
 
 <% if @targets.size > 0 %>
-<table class="targets">
-  <tr>
-    <th><%= sortable "name" %></th>
-    <th>Target Species</th>
-    <th><%= sortable "antibodies_count", "Antibodies" %></th>
-    <th>Validated Species</th>
-    <th>Validations<%= validations_help.html_safe %></th>
-    <th>Passed / Total</th>
-  </tr>
-
-<% @targets.each do |target| %>
-  <tr>
-    <td><%= link_to target.name, target %></td>
-    <td><%= target.species.name %></td>
-    <td class="number"><%= target.antibodies_count %></td>
-    <td><%= validated_species(target.validations)%></td>
-    <td class="number"><%= link_to(validation_by_type(target.validations), target)%></td>
-    <td><%= link_to(validation_results(target.validations), target)  + validation_results_graph(target.validations) %></td>
-  </tr>
-<% end %>
-</table>
+<%= target_list(@targets, "noheading")%>
 
 <%= will_paginate(@targets) %>
 <% end %>
