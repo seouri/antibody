@@ -9,7 +9,7 @@ module TargetsHelper
     th.push(content_tag(:th, "Validated Species"))
     th.push(content_tag(:th, ("Validations" + validations_help).html_safe))
     th.push(content_tag(:th, "Passed / Total"))
-    tr.push(content_tag(:tr, th.join("\t").html_safe))
+    tr.push(content_tag(:tr, th.join("\n").html_safe))
     targets.each do |target|
       td = []
       td.push(content_tag(:td, link_to(target.name, target)))
