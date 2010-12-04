@@ -36,6 +36,10 @@ p {
   font-size: 123.1%;
   line-height: 165%;
 }
+li {
+  font-size: 100%;
+  line-height: 165%;
+}
 a, a:visited {
   color: #b50;
   text-decoration: none;
