@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
+    t.integer  "validator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -186,5 +187,7 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "validators", ["name"], :name => "index_validators_on_name", :unique => true
 
 end
