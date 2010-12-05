@@ -18,7 +18,7 @@
 
 <% @antibodies.each do |antibody| %>
   <tr>
-    <td><%= link_to antibody.source.name, antibody.source %></td>
+    <td><%= link_to antibody.source.name, antibody %></td>
     <td><%= link_to antibody.catalogue_number, antibody %></td>
     <td><%= link_to antibody.lot_number, antibody %></td>
     <td><%= link_to antibody.target.name, antibody.target %></td>
