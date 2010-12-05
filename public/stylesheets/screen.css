@@ -666,6 +666,32 @@ ul.upload:after, .upload input.right:after {
 }
 /* upload forms end */
 
+/* sign up/in/out start */
+#user_new {
+}
+#user_new input {
+  margin: 0;
+  padding: 0.25em;
+  border: 2px solid #e82;
+  font-size: 150%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 15em;
+}
+#user_new input[type="submit"] {
+  background-color: #e82;
+  color: #fff;
+  width: 15.7em;
+}
+#user_new input[type="checkbox"] {
+  width: 1em;
+}
+#user_new label {
+  font-size: 150%;
+}
+/* sign up/in/out end */
+
 a.validation_image, a.validation_image:visited {
   color: #fff;
   background-color: #e82;
