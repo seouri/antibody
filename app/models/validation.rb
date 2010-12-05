@@ -8,6 +8,6 @@ class Validation < ActiveRecord::Base
   has_attached_file :image
 
   def result
-    self.passed? ? "Passed" : "Failed"
+    self.passed? ? "Passed" : self.passed.nil? ? "" : "Failed"
   end
 end

@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(:version => 20101120150305) do
     t.integer  "validator_id"
     t.string   "category"
     t.integer  "species_id"
-    t.boolean  "passed",             :default => false
+    t.boolean  "passed"
     t.string   "notes"
     t.string   "conditions"
     t.string   "validator_name"
