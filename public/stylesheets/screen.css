@@ -651,6 +651,7 @@ ul.upload:after, .upload input.right:after {
 
 .upload select {
   font-size: 150%;
+  width: 15.6em;
 }
 .examples {
   text-align: right;

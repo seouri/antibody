@@ -25,6 +25,21 @@ class PagesController < ApplicationController
   end
 
   def set_validator
+    if params[:validator_id].present?
+      validator = Validator.find(params[:validator_id])
+      current_user.validator = validator
+      if current_user.save!
+        redirect_to(upload_url)
+      end
+    end
+  end
+
+  def create_validator
+    if params[:validator_name]
+      validator = Validator.new(:name => params[:validator_name])
+      validator.save!
+    end
+    redirect_to(set_validator_url)
   end
 
   def create_target

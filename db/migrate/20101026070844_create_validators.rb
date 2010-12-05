@@ -7,6 +7,7 @@ class CreateValidators < ActiveRecord::Migration
       t.integer :validations_count, :default => 0
       t.timestamps
     end
+    add_index :validators, :name, :unique => true
   end
 
   def self.down

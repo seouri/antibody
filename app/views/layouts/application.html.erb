@@ -52,7 +52,13 @@
 <% if controller.controller_name == "pages" and controller.action_name == "upload" %>
   <ul id="usermenu" class="horizontal_menu">
   <% if user_signed_in? %>
-    <li>Signed in: <%= link_to_unless_current("#{current_user.email}", current_user) %></li>
+    <li>Signed in: <%= link_to_unless_current("#{current_user.email}", current_user) %>
+      <% if current_user.validator_id.nil? %>
+        [<%= link_to "Set up your validating lab", set_validator_url %>]
+      <% else %>
+        (<%= link_to current_user.validator.name, set_validator_url %>)
+      <% end %>
+    </li>
     <li><%= link_to_unless_current("Sign out", destroy_user_session_path) %></li>
   <% else %>
     <li><%= link_to_unless_current('Sign in', new_user_session_path)  %></li>

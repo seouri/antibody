@@ -1,1 +1,16 @@
-<h1>Set up your affiliation</h1>
+<h1>Set Up Your Validating Lab</h1>
+
+<%= form_tag set_validator_url, :method => 'post', :class => "upload" do %>
+  <%= label_tag :validator_id, "Validator name" %>
+  <%= select_tag :validator_id, options_from_collection_for_select(Validator.order("name"), :id, :name, current_user.validator_id) %>
+  
+  <%= submit_tag "save", :name => nil%>
+<% end %>
+
+<h2>Create New Validating Lab</h2>
+
+<%= form_tag create_validator_url, :method => 'post', :class => "upload" do %>
+  <%= label_tag :validator_name %>
+  <%= text_field_tag :validator_name, params[:validator_name] %>
+  <%= submit_tag "save", :name => nil%>
+<% end %>

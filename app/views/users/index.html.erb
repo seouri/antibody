@@ -3,10 +3,12 @@
 <table>
   <tr>
     <th>Email</th>
+    <th>Laboratory</th>
   </tr>
 <% @users.each do |user| %>
   <tr>
     <td><%= link_to user.email, user %></td>
+    <td><%= link_to user.validator.try(:name), user.validator %></td>
   </tr>
 <% end %>
 </table>

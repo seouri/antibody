@@ -13,6 +13,7 @@ Antibodyapp::Application.routes.draw do
   root :to => "pages#home"
   match 'about' => "pages#about"
   match 'upload' => "pages#upload"
+  match 'create_validator' => "pages#create_validator"
   match 'create_validation' => "pages#create_validation"
   match 'create_target' => "pages#create_target"
   match 'create_source' => "pages#create_source"
