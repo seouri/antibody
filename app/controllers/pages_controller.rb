@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => [:upload, :set_validator]
   
   def home
   end
@@ -8,6 +8,11 @@ class PagesController < ApplicationController
   end
 
   def upload
+    if current_user.validator.nil?
+      redirect_to(set_validator_url)
+    end
+    validator_id = current_user.validator_id
+
     @targets = Target.where(["targets.name like ?", "%#{params[:find_target]}%"]).includes(:species).order("targets.name") if params[:find_target].present?
     @target = Target.find(params[:target_id]) if params[:target_id].present?
     @new_target = Target.new(:name => params[:find_target]) unless params[:target_id].present? or @targets.present?
@@ -16,7 +21,10 @@ class PagesController < ApplicationController
     @new_source = Source.new(:name => params[:find_source]) unless params[:source_id].present?
     @antibody = @target.antibodies.find(params[:antibody_id]) if params[:antibody_id].present?
     @new_antibody = @target.antibodies.new(:source_id => @source.id) if @target.present? and @source.present?
-    @validation = @antibody.validations.new(:target_id => @target.id, :validator_id => 1) if @antibody.present?
+    @validation = @antibody.validations.new(:target_id => @target.id, :validator_id => validator_id) if @antibody.present?
+  end
+
+  def set_validator
   end
 
   def create_target

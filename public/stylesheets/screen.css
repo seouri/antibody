@@ -327,8 +327,16 @@ h2 {
   text-decoration: none;
   color: #421;
 }
-#usermenu {
-  float: right;
+ul#usermenu {
+  margin: 0;
+  padding: 0.25em 1.5em;
+  border-bottom: 1px solid #e82;
+  text-align: right;
+}
+#usermenu li {
+  margin: 0 1em 0 0;
+  list-style: none;
+  display: inline;
 }
 #footer {
   margin-top: 4em;
@@ -669,7 +677,7 @@ ul.upload:after, .upload input.right:after {
 /* sign up/in/out start */
 #user_new {
 }
-#user_new input {
+#user_new input, #user_edit input {
   margin: 0;
   padding: 0.25em;
   border: 2px solid #e82;
@@ -679,7 +687,7 @@ ul.upload:after, .upload input.right:after {
   border-radius: 6px;
   width: 15em;
 }
-#user_new input[type="submit"] {
+#user_new input[type="submit"], #user_edit input[type="submit"] {
   background-color: #e82;
   color: #fff;
   width: 15.7em;
