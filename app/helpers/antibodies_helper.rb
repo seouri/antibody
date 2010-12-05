@@ -1,13 +1,5 @@
 module AntibodiesHelper
   def validation_images(validation)
-    
-  end
-
-  def old_validation_images(validation)
-    images = []
-    validation.images.select(:id).each do |image|
-      images.push(link_to("image", root_url + "validation_image/" + image.id.to_s, :target => "_blank"))
-    end
-    images.join("\n").html_safe
+    link_to("open", validation.image.url, :target => "_blank", :class => "validation_image") if validation.image_file_name.present?
   end
 end

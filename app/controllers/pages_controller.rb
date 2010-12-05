@@ -54,18 +54,8 @@ class PagesController < ApplicationController
   end
 
   def create_validation
-    #image = Image.new
-    #if params[:validation][:image].present?
-    #  i = params[:validation][:image]
-    #  image.filename = i.original_filename
-    #  content_type = i.content_type
-    #  binary_data = i.read
-    #  params[:validation].delete(:image)
-    #end
     @validation = Validation.new(params[:validation])
-    #image.validation = @validation
     if @validation.save
-      #image.save
       redirect_to(@validation.antibody, :notice => 'Validation was successfully created.')
     else
       @target = @validation.target

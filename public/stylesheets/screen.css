@@ -665,3 +665,13 @@ ul.upload:after, .upload input.right:after {
   float: none;
 }
 /* upload forms end */
+
+a.validation_image, a.validation_image:visited {
+  color: #fff;
+  background-color: #e82;
+  font-size: 75%;
+  padding: 0.25em 0.5em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
