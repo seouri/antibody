@@ -1,8 +1,6 @@
 Antibodyapp::Application.routes.draw do
   resources :validators
-
   resources :projects
-
   resources :targets do
     get :autocomplete_target_name, :on => :collection
     get :search, :on => :collection
