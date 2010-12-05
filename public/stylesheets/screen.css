@@ -70,7 +70,7 @@ a:hover {
   background-color: #fff;
   border: 1px solid #fec;
   opacity: 0.9;
-  width: 18em;
+  width: 15em;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -86,6 +86,9 @@ a:hover {
 .helptext ul {
   margin-top: 0;
   margin-bottom: 0;
+}
+.helptext.criteria {
+  width: 30em;
 }
 .example {
   color: #eda;
@@ -539,7 +542,7 @@ table.antibodies, table.validations {
   color: #900;
 }
 .validation_results_graph {
-  margin: -11px 5px -12px -5px;
+  margin: -11px 20px -12px -25px;
   float: right;
 }
 

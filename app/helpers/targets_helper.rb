@@ -63,6 +63,6 @@ module TargetsHelper
   end
 
   def validation_criteria_help
-    help('<ul><li><strong>Western blot</strong>: Pass if the histone band constituted at least 50% of the total nuclear signal, was at least ten-fold more intense than any other single nuclear band, and was at least ten-fold more intense than recombinant, unmodified histone.</li><li><strong>Dot blot</strong>: Pass if at least 75% of the total signal was specific to the cognate peptide.</li><li><strong>ChIP-chip/seq</strong>:  Pass if the Pearson correlation is more than 0.8 on any pair of ChIPs performed from independent preparations matched for stage, cell type or biological tissue</li></ul>')
+    help('<ul><li><strong>Western blot</strong>: Pass if the histone band constituted at least 50% of the total nuclear signal, was at least ten-fold more intense than any other single nuclear band, and was at least ten-fold more intense than recombinant, unmodified histone.</li><li><strong>Dot blot</strong>: Pass if at least 75% of the total signal was specific to the cognate peptide.</li><li><strong>ChIP-chip/seq</strong>:  Pass if the Pearson correlation is more than 0.8 on any pair of ChIPs performed from independent preparations matched for stage, cell type or biological tissue</li></ul>', "criteria")
   end
 end

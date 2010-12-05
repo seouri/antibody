@@ -24,7 +24,9 @@ module ApplicationHelper
       content_for(:title) {title}
   end
 
-  def help(helptext)
-    '<span class="help"><span class="helpmark">?</span><div class="helptext">' + helptext + '</div></span>'
+  def help(helptext, cssclass = nil)
+    helptext_cssclass = "helptext"
+    helptext_cssclass += " #{cssclass}" unless cssclass.nil?
+    '<span class="help"><span class="helpmark">?</span><div class="' + helptext_cssclass + '">' + helptext + '</div></span>'
   end
 end
