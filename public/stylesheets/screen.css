@@ -710,3 +710,7 @@ a.validation_image, a.validation_image:visited {
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
+
+ul.about {
+  font-size: 108%;
+}
